@@ -11,67 +11,67 @@
 // Apple SD Gothic Neo
 @font-face {
   font-family: 'Apple SD Gothic Neo';
-  src: url('../public/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf') format('truetype');
+  src: url('/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf') format('truetype');
   font-weight: normal;
 }
 @font-face {
   font-family: 'Apple SD Gothic Neo';
-  src: url('../public/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf') format('truetype');
+  src: url('/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf') format('truetype');
   font-weight: light;
 }
 @font-face {
   font-family: 'Apple SD Gothic Neo';
-  src: url('../public/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf') format('truetype');
+  src: url('/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf') format('truetype');
   font-weight: bold;
 }
 
 // DejaVu Sans Mono
 @font-face {
   font-family: 'DejaVu Sans Mono';
-  src: url('../public/fonts/DejavuSansMono/DejaVuSansMono.ttf') format('truetype');
+  src: url('/fonts/DejavuSansMono/DejaVuSansMono.ttf') format('truetype');
   font-weight: normal;
 }
 @font-face {
   font-family: 'DejaVu Sans Mono';
-  src: url('../public/fonts/DejavuSansMono/DejaVuSansMono-Oblique.ttf') format('truetype');
+  src: url('/fonts/DejavuSansMono/DejaVuSansMono-Oblique.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: 'DejaVu Sans Mono';
-  src: url('../public/fonts/DejavuSansMono/DejaVuSansMono-Bold.ttf') format('truetype');
+  src: url('/fonts/DejavuSansMono/DejaVuSansMono-Bold.ttf') format('truetype');
   font-weight: bold;
 }
 
 // FiraCode
 @font-face {
   font-family: 'FiraCode';
-  src: url('../public/fonts/FiraCode/FiraCode-Light.ttf') format('truetype');
+  src: url('/fonts/FiraCode/FiraCode-Light.ttf') format('truetype');
   font-weight: lighter;
 }
 @font-face {
   font-family: 'FiraCode';
-  src: url('../public/fonts/FiraCode/FiraCode-Retina.ttf') format('truetype');
+  src: url('/fonts/FiraCode/FiraCode-Retina.ttf') format('truetype');
   font-weight: light;
 }
 @font-face {
   font-family: 'FiraCode';
-  src: url('../public/fonts/FiraCode/FiraCode-Regular.ttf') format('truetype');
+  src: url('/fonts/FiraCode/FiraCode-Regular.ttf') format('truetype');
   font-weight: normal;
 }
 @font-face {
   font-family: 'FiraCode';
-  src: url('../public/fonts/FiraCode/FiraCode-SemiBold.ttf') format('truetype');
+  src: url('/fonts/FiraCode/FiraCode-SemiBold.ttf') format('truetype');
   font-weight: bold;
 }
 @font-face {
   font-family: 'FiraCode';
-  src: url('../public/fonts/FiraCode/FiraCode-Bold.ttf') format('truetype');
+  src: url('/fonts/FiraCode/FiraCode-Bold.ttf') format('truetype');
   font-weight: bolder;
 }
 
 // Monaco
-@include font-face('Monaco', '../public/fonts/Monaco/Monaco.ttf');
+@include font-face('Monaco', '/fonts/Monaco/Monaco.ttf');
 
 * {
   margin: 0;

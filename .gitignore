@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# license
+/public/license.html
+
 # next.js
 /.next/
 /out/

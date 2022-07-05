@@ -1,0 +1,56 @@
+@mixin font-face($style-name, $file) {
+  @font-face {
+    font-family: $style-name;
+    src: url($file) format('truetype');
+  }
+}
+
+// Noto Sans KR
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+// Apple SD Gothic Neo
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
+  src: url('../public/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf') format('truetype') font-weight-normal,
+       url('../public/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf') format('truetype') font-weight-light,
+       url('../public/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf') format('truetype') font-weight-bold;
+}
+
+// DejaVu Sans Mono
+@font-face {
+  font-family: 'DejaVu Sans Mono';
+  src: url('../public/fonts/DejavuSansMono/DejaVuSansMono.ttf') format('truetype') font-weight-normal,
+       url('../public/fonts/DejavuSansMono/DejaVuSansMono-Oblique.ttf') format('truetype') font-italic font-weight-normal,
+       url('../public/fonts/DejavuSansMono/DejaVuSansMono-Bold.ttf') format('truetype') font-weight-bold;
+}
+
+// FiraCode
+@font-face {
+  font-family: 'FiraCode';
+  src: url('../public/fonts/FiraCode/FiraCode-Light.ttf') format('truetype') font-weight-lighter,
+       url('../public/fonts/FiraCode/FiraCode-Retina.ttf') format('truetype') font-weight-light,
+       url('../public/fonts/FiraCode/FiraCode-Regular.ttf') format('truetype') font-weight-normal,
+       url('../public/fonts/FiraCode/FiraCode-SemiBold.ttf') format('truetype') font-weight-bold,
+       url('../public/fonts/FiraCode/FiraCode-Bold.ttf') format('truetype') font-weight-bolder;
+}
+
+// Monaco
+@include font-face('Monaco', '../public/fonts/Monaco/Monaco.ttf');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  ul, li {
+    list-style: none;
+  }
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

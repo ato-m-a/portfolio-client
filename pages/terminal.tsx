@@ -4,17 +4,14 @@ import { Fragment } from 'react';
 /* layout */
 import GeneralLayout from '../layouts/general';
 
-/* styles */
-import styles from '../styles/home.module.scss';
-
-const Home: Page = () => {
+const Terminal: Page = () => {
   return (
     <Fragment>
-      
+
     </Fragment>
   )
 };
 
-Home.layout = GeneralLayout;
+Terminal.layout = GeneralLayout;
 
-export default Home;
+export default Terminal;

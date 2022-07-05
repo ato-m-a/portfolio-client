@@ -3,15 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dep": "license-report --only=prod --output=html > ./public/license.html",
+    "prebuild": "rimraf .next",
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run prebuild && npm run dep && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
+    "@types/react-redux": "^7.1.24",
+    "axios": "^0.27.2",
     "next": "12.2.0",
+    "next-pwa": "^5.5.4",
+    "node-sass": "^7.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "18.0.1",
@@ -19,6 +31,8 @@
     "@types/react-dom": "18.0.5",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
+    "license-report": "^5.0.2",
+    "rimraf": "^3.0.2",
     "typescript": "4.7.4"
   }
 }

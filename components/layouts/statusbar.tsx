@@ -28,7 +28,7 @@ const StatusBar = (): ReactElement => {
   return (
     <div className={styles.header__statusbar}>
       <div className={styles.header__btn}>
-        {time}
+        {time ? time : stringFormat(new Date())}
       </div>
     </div>
   )

@@ -2,6 +2,7 @@ import type { Page } from '../types/page';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Draggable from 'react-draggable';
+import Link from 'next/link';
 
 /* layout */
 import GeneralLayout from '../layouts/general';
@@ -32,13 +33,12 @@ const Terminal: Page = () => {
     setPosition({ ...olderConfig.position });
   }, [olderConfig]);
 
-  const toHome = async () => {
+  const disableDrag = () => {
     setDragStatus(false);
-    await router.replace('/');
   }
 
   // terminal message state
-  
+
   
   return (
     <Fragment>
@@ -47,7 +47,9 @@ const Terminal: Page = () => {
         <section className={styles.terminal} ref={nodeRef}>
           <div className={styles.terminal__controlbar}>
             <div className={styles.terminal__btnzone}>
-              <span className={styles.btn_red} onClick={toHome} onTouchStart={toHome} />
+              <Link href={{ pathname: '/' }}>
+                <span className={styles.btn_red} onTouchStart={disableDrag} />
+              </Link>
               <span className={styles.btn_yellow} />
               <span className={styles.btn_green} />
             </div>

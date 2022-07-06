@@ -1,4 +1,5 @@
 import { ReactElement, Fragment, useState } from 'react';
+import { AppType, AppData } from '../../modules/appdata';
 
 /* styles */
 import styles from '../../styles/layout.module.scss';
@@ -12,7 +13,11 @@ const Docker = (): ReactElement => {
       <footer className={styles.docker}>
         <nav className={styles.application__container}>
           <ul>
-            <Application src="terminal.png" path="/terminal" name="터미널" />
+            {
+              AppData().map(app => (
+                <Application src={app.src} name={app.name} path={app.path} key={app.name} />
+              ))
+            }
           </ul>
         </nav>
       </footer>

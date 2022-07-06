@@ -1,22 +1,22 @@
-import { ReactElement, ReactNode, Fragment } from 'react';
+import { ReactNode, ReactElement, Fragment } from 'react';
 import Head from 'next/head';
 
-type PageProps = {
+type AppProps = {
   children: ReactNode;
 };
-
-/* styles */
-import styles from '../styles/home.module.scss';
 
 /* components */
 import GeneralHeader from '../components/layouts/header';
 import Docker from '../components/layouts/docker';
 
-const GeneralLayout = ({ children }: PageProps): ReactElement => {
+/* styles */
+import styles from '../styles/home.module.scss';
+
+const GeneralLayout = ({ children }: AppProps): ReactElement => {
   return (
     <Fragment>
       <Head>
-        <title>홍준혁 포트폴리오</title>
+        <title>홍준혁</title>
       </Head>
       <GeneralHeader />
       <main className={styles.home}>

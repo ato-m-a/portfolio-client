@@ -1,19 +1,14 @@
 import { ReactElement } from 'react';
 import { useRouter } from 'next/router';
+import { AppType } from '../../modules/appdata';
 import Link from 'next/link';
-
-type config = {
-  src: string;
-  path: string;
-  name: string;
-}
 
 /* styles */
 import styles from '../../styles/application.module.scss';
 
-const Application = ({ src, path, name }: config): ReactElement => {
+const Application = ({ name, src, path }: AppType): ReactElement => {
   const router = useRouter();
-  
+
   return (
     <li>
       <Link href={{ pathname: path }}>
@@ -23,7 +18,7 @@ const Application = ({ src, path, name }: config): ReactElement => {
         }} />
       </Link>
       <div className={styles.status}>
-        {router.pathname === path && <span>•</span>}
+        {path === router.pathname && <span>•</span>}
       </div>
     </li>
   )

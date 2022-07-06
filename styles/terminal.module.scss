@@ -1,0 +1,81 @@
+.terminal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 100000;
+  box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);
+  border: 1.2px solid rgba(68, 67, 70, 1);
+  border-radius: 10px;
+  overflow: hidden;
+
+  .terminal__controlbar {
+    position: relative;
+    width: 100%;
+    height: 28px;
+    // background: rgb(58, 49, 77);
+    background: rgba(51, 47, 56, 0.9);
+    color: rgb(183, 173, 200);
+    font-family: 'Apple SD Gothic Neo', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 6px;
+
+    .terminal__btnzone {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      width: 52px;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        border-radius: 50%;
+        opacity: 1;
+        width: 12px;
+        height: 12px;
+        font-size: 12px;
+        line-height: 10px;
+        vertical-align: middle;
+        text-align: center;
+        z-index: 101;
+      }
+
+      span:active {
+        filter: brightness(120%);
+      }
+
+      .btn_red {
+        background: rgb(237, 106, 94);
+      }
+
+      .btn_yellow {
+        background: rgb(245, 191, 79);
+      }
+
+      .btn_green {
+        background: rgb(98, 197, 84);
+      }
+    }
+
+    .terminal__title {
+      position: absolute;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 46.5%;
+    }
+  }
+
+  .terminal__body {
+    background: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    max-height: calc(100% - 28px);
+    flex: 1;
+    overflow-y: scroll;
+  }
+}

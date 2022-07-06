@@ -19,9 +19,9 @@
   position: fixed;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
+  padding: 0px 6px;
   cursor: default;
   user-select: none;
   // background
@@ -36,6 +36,49 @@
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   // transition
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+
+  .header__btn {
+    border-radius: 5px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 15px;
+  }
+
+  .header__btn:active {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .header__router {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    // 홈 가기
+    .header__home {
+      font-size: 15px;
+    }
+
+    // 제목
+    .header__title {
+      font-weight: bold;
+    }
+  }
+
+  .header__statusbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: 'Apple SD Gothic Neo', sans-serif;
+    font-weight: normal;
+
+    .header__btn {
+      padding: 0px 10px;
+    }
+  }
 }
 
 //0 22px 70px 4px rgba(0, 0, 0, 0.56); 
@@ -65,7 +108,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 10px 10px 2px 10px;
+  padding: 10px 5px 2px 5px;
 
   .application__container {
     width: 100%;

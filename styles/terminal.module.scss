@@ -7,6 +7,8 @@
 
 .terminal {
   display: flex;
+  width: 56.5%;
+  height: 80%;
   max-width: 100%;
   max-height: calc(100% - 90px);
   flex-direction: column;
@@ -86,5 +88,9 @@
     max-height: calc(100% - 28px);
     flex: 1;
     overflow-y: scroll;
+    font-family: 'Monaco';
+    font-size: 15px;
+    color: #fff;
+    padding: 2px 5px;
   }
 }

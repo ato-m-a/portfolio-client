@@ -2,14 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
 
 export type Config = {
-  width: number;
-  height: number;
   position: { x: number, y: number };
 };
 
 const initialState: Config = {
-  width: 600,
-  height: 400,
   position: { x: 140, y: 120 }
 };
 

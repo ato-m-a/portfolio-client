@@ -21,23 +21,19 @@ const Terminal: Page = () => {
 
   // config
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [style, setStyle] = useState({ width: 600, height: 400 });
   const trackPos = (data: { x: number, y:number }) => {
     setPosition({ x: data.x, y: data.y });
-    dispatch(updateConfig({ width, height, position: { x: data.x, y: data.y } }));
+    dispatch(updateConfig({ position: { x: data.x, y: data.y } }));
   };
 
   useEffect(() => {
-    setStyle({ width: olderConfig.width, height: olderConfig.height });
     setPosition({ ...olderConfig.position });
   }, [olderConfig]);
-
-  const { width, height } = style;
   
   return (
     <Fragment>
       <Draggable position={position} onDrag={(e, data) => trackPos(data)} nodeRef={nodeRef} bounds='parent'>
-        <section className={styles.terminal} ref={nodeRef} style={{ width: `${width}px`, height: `${height}px` }}>
+        <section className={styles.terminal} ref={nodeRef}>
           <div className={styles.terminal__controlbar}>
             <div className={styles.terminal__btnzone}>
               <Link href={{ pathname: '/' }}>
@@ -51,7 +47,7 @@ const Terminal: Page = () => {
             </div>
           </div>
           <div className={styles.terminal__body}>
-
+            (base) ato-m-a@Tom ~ %
           </div>
         </section>
       </Draggable>

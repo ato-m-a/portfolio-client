@@ -10,6 +10,8 @@ const Document = () => {
         <meta name="theme-color" content="#fff" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="preload" href="/images/background.jpeg" as="image" />
+        <link rel="preload" href="/images/terminal.png" as="image" />
       </Head>
       <body>
         <Main />

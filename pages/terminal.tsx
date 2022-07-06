@@ -36,6 +36,9 @@ const Terminal: Page = () => {
     setDragStatus(false);
     await router.replace('/');
   }
+
+  // terminal message state
+  
   
   return (
     <Fragment>

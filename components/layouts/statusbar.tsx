@@ -16,7 +16,7 @@ const StatusBar = (): ReactElement => {
     return `${month}월 ${date.getDate()}일 (${day}) ${am_pm} ${hours}:${minutes}`;
   }
 
-  const [time, setTime] = useState<string>(stringFormat(new Date()));
+  const [time, setTime] = useState<string>(null);
 
   useEffect(() => {
     const watchTime = setInterval(() => {

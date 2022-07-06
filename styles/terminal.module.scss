@@ -1,5 +1,14 @@
+@media screen and (max-width: 778px) {
+  .terminal {
+    width: 100% !important;
+    height: calc(100% - 94px) !important;
+  }
+}
+
 .terminal {
   display: flex;
+  max-width: 100%;
+  max-height: calc(100% - 90px);
   flex-direction: column;
   position: absolute;
   z-index: 100000;

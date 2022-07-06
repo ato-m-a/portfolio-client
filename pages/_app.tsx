@@ -1,8 +1,9 @@
 import type { AppContext, AppProps, AppInitialProps } from 'next/app';
 import { NextComponentType } from 'next';
-import { Fragment} from 'react';
+import { Fragment } from 'react';
 import { Page } from '../types/page';
 import { Provider } from 'react-redux';
+import Head from 'next/head';
 import store from '../store/index';
 import axios from 'axios';
 
@@ -22,6 +23,9 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
 
   return (
     <Provider store={store}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+      </Head>
       <Layout>
         {getLayout(<Component {...pageProps} />)}
       </Layout>

@@ -59,7 +59,7 @@ const Terminal: Page = () => {
             </div>
           </div>
           <div className={styles.terminal__body}>
-            (base) ato-m-a@Tom ~ %
+            (base) guest@hong ~ %
           </div>
         </section>
       </Draggable>

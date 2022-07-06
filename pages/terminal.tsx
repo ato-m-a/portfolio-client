@@ -23,42 +23,59 @@ const Terminal: Page = () => {
 
   // config
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [dragStatus, setDragStatus] = useState<boolean>(false);
+  const [savedPosition, savePosition] = useState({ x: 0, y: 0 });
+  const [expand, setExpand] = useState<boolean>(false);
+  const [dragDisable, setDragDisable] = useState<boolean>(false);
   const trackPos = (data: { x: number, y:number }) => {
     setPosition({ x: data.x, y: data.y });
+    savePosition({ x: data.x, y: data.y });
     dispatch(updateConfig({ position: { x: data.x, y: data.y } }));
   };
 
   useEffect(() => {
     setPosition({ ...olderConfig.position });
+    savePosition({ ...olderConfig.position });
   }, [olderConfig]);
 
-  const goHome = async () => {
-    setDragStatus(false);
+  useEffect(() => {
+    if (expand) setDragDisable(true);
+  }, [expand]);
+
+  const goHome = async (): Promise<void> => {
+    setDragDisable(true);
     await router.replace('/');
+  };
+
+  const expandTerminal = (setType: boolean): void => {
+    if (setType && !expand) {
+      setPosition({ x: 0, y: 0 });
+      setExpand(true);
+    } else if (!setType && expand) {
+      setPosition({ ...savedPosition });
+      setExpand(false);
+    }
   }
 
   // terminal message state
-
   
   return (
     <Fragment>
       <Draggable position={position} onDrag={(e, data) => trackPos(data)} nodeRef={nodeRef} 
-      bounds='parent' disabled={dragStatus}>
-        <section className={styles.terminal} ref={nodeRef}>
-          <div className={styles.terminal__controlbar}>
+      bounds='parent' disabled={dragDisable}>
+        <section className={styles.terminal} id="terminal" ref={nodeRef} style={expand && { width: '100%', height: 'calc(100% - 94px)' }}>
+          <div className={styles.terminal__controlbar} onMouseEnter={() => !expand && setDragDisable(false)}>
             <div className={styles.terminal__btnzone}>
               <Link href={{ pathname: '/' }}>
                 <span className={styles.btn_red} onTouchStart={goHome} />
               </Link>
-              <span className={styles.btn_yellow} />
-              <span className={styles.btn_green} />
+              <span className={styles.btn_yellow} onClick={() => expandTerminal(false)} />
+              <span className={styles.btn_green} onClick={() => expandTerminal(true)} />
             </div>
             <div className={styles.terminal__title}>
               터미널
             </div>
           </div>
-          <div className={styles.terminal__body}>
+          <div className={styles.terminal__body} onMouseEnter={() => !expand && setDragDisable(true)}>
             (base) guest@hong ~ %
           </div>
         </section>

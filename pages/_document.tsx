@@ -8,6 +8,7 @@ const Document = () => {
         <meta name="description" content="홍준혁 포트폴리오" />
         <meta name="keywords" content="포트폴리오, nextjs, nestjs, pwa" />
         <meta name="theme-color" content="#fff" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>

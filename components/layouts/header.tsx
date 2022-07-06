@@ -31,7 +31,7 @@ const GeneralHeader = (): ReactElement => {
           {pathname}
         </div>
       </div>
-      <StatusBar />
+      
     </header>
   )
 };

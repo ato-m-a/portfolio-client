@@ -44,7 +44,7 @@ const Terminal: Page = () => {
         <section className={styles.terminal} ref={nodeRef}>
           <div className={styles.terminal__controlbar}>
             <div className={styles.terminal__btnzone}>
-              <span className={styles.btn_red} onClick={toHome} />
+              <span className={styles.btn_red} onClick={toHome} onTouchStart={toHome} />
               <span className={styles.btn_yellow} />
               <span className={styles.btn_green} />
             </div>

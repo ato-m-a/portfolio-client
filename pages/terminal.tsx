@@ -1,6 +1,6 @@
 import type { Page } from '../types/page';
 import { Fragment, useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Draggable from 'react-draggable';
 
 /* layout */
@@ -14,6 +14,7 @@ import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { selectConfig, updateConfig } from '../store/reducers/terminal';
 
 const Terminal: Page = () => {
+  const router = useRouter();
   const nodeRef = useRef(null);
 
   const dispatch = useAppDispatch();
@@ -21,6 +22,7 @@ const Terminal: Page = () => {
 
   // config
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [dragStatus, setDragStatus] = useState<boolean>(false);
   const trackPos = (data: { x: number, y:number }) => {
     setPosition({ x: data.x, y: data.y });
     dispatch(updateConfig({ position: { x: data.x, y: data.y } }));
@@ -29,16 +31,20 @@ const Terminal: Page = () => {
   useEffect(() => {
     setPosition({ ...olderConfig.position });
   }, [olderConfig]);
+
+  const toHome = async () => {
+    setDragStatus(false);
+    await router.replace('/');
+  }
   
   return (
     <Fragment>
-      <Draggable position={position} onDrag={(e, data) => trackPos(data)} nodeRef={nodeRef} bounds='parent'>
+      <Draggable position={position} onDrag={(e, data) => trackPos(data)} nodeRef={nodeRef} 
+      bounds='parent' disabled={dragStatus}>
         <section className={styles.terminal} ref={nodeRef}>
           <div className={styles.terminal__controlbar}>
             <div className={styles.terminal__btnzone}>
-              <Link href={{ pathname: '/' }}>
-                <span className={styles.btn_red} />
-              </Link>
+              <span className={styles.btn_red} onClick={toHome} />
               <span className={styles.btn_yellow} />
               <span className={styles.btn_green} />
             </div>

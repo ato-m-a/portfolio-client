@@ -16,26 +16,24 @@ const StatusBar = (): ReactElement => {
     return `${month}월 ${date.getDate()}일 (${day}) ${am_pm} ${hours}:${minutes}`;
   }
 
-  const [documentState, setDocumentState] = useState<boolean>(false);
+  const [available, setAvailable] = useState<boolean>(false);
   const [time, setTime] = useState<string>(stringFormat(new Date()));
-
-  useEffect(() => {
-    setDocumentState(true);
-  }, []);
   
   useEffect(() => {
-    if (documentState) {
-      const watchTime = setInterval(() => {
-        setTime(stringFormat(new Date()));
-      }, 1000);
-      return (() => clearInterval(watchTime));
-    }
-  }, [documentState]);
+    setAvailable(true);
+  }, [])
+
+  useEffect(() => {
+    const watchTime = setInterval(() => {
+      setTime(stringFormat(new Date()));
+    }, 1000);
+    return (() => clearInterval(watchTime));
+  }, []);
 
   return (
     <div className={styles.header__statusbar}>
       <div className={styles.header__btn}>
-        {time}
+        {available && time}
       </div>
     </div>
   )

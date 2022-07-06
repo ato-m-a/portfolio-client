@@ -33,8 +33,9 @@ const Terminal: Page = () => {
     setPosition({ ...olderConfig.position });
   }, [olderConfig]);
 
-  const disableDrag = () => {
+  const goHome = async () => {
     setDragStatus(false);
+    await router.replace('/');
   }
 
   // terminal message state
@@ -48,7 +49,7 @@ const Terminal: Page = () => {
           <div className={styles.terminal__controlbar}>
             <div className={styles.terminal__btnzone}>
               <Link href={{ pathname: '/' }}>
-                <span className={styles.btn_red} onTouchStart={disableDrag} />
+                <span className={styles.btn_red} onTouchStart={goHome} />
               </Link>
               <span className={styles.btn_yellow} />
               <span className={styles.btn_green} />

@@ -1,0 +1,10 @@
+{
+  "name": "Hong",
+  "short_name": "Hong",
+  "theme_color": "#42148f",
+  "background_color": "#42148f",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}

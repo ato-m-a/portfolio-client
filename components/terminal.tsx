@@ -120,7 +120,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
 
     switch (execution) {
       case 'text_secure':
-        // textSecure(true);
+        textSecure(true);
         break;
       case 'updateUser':
         textSecure(false);

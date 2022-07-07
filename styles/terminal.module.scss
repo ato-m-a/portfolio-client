@@ -105,7 +105,10 @@
       flex-direction: column;
 
       .line {
+        max-width: 100%;
         height: auto;
+        word-wrap: break-word;
+        word-break: break-all;
   
         .session {
           width: fit-content;
@@ -120,13 +123,14 @@
     
         .input {
           display: inline;
+          flex: 1;
+          max-width: 100%;
           outline: none;
           border: none;
           background: transparent;
           color: #fff;
           font-size: 15px;
           font-family: 'Monaco';
-          word-break: break-all;
           caret-color: rgba(96, 96, 96, 0.85);
         }
   

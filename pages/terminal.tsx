@@ -1,6 +1,7 @@
 import type { Page } from '../types/page';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import { detector } from '../modules/detector';
 import Draggable from 'react-draggable';
 import Link from 'next/link';
 
@@ -17,20 +18,6 @@ import { selectConfig, updateConfig } from '../store/reducers/terminal';
 const Terminal: Page = () => {
   const router = useRouter();
   const nodeRef = useRef(null);
-
-  // detect mobile device
-  const detector = (userAgent: string) => {
-    const mobileRegex = [
-      /Android/i,
-      /iPhone/i,
-      /iPad/i,
-      /iPod/i,
-      /BlackBerry/i,
-      /Windows Phone/i
-    ];
-
-    return mobileRegex.some(mobile => userAgent.match(mobile));
-  };
 
   const dispatch = useAppDispatch();
   const olderConfig = useAppSelector(selectConfig);
@@ -55,6 +42,8 @@ const Terminal: Page = () => {
   useEffect(() => {
     if (isMobile) {
       setPosition({ x: 0, y: 0 });
+      window.matchMedia('(orientation: portrait)').matches && setIsPortrait(true);
+
       const ResizeListener = () => {
         if (window.matchMedia('(orientation: portrait)').matches) {
           setIsPortrait(true);

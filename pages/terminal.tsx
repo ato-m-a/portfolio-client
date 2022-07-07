@@ -55,16 +55,17 @@ const Terminal: Page = () => {
     if (isMobile) {
       setPosition({ x: 0, y: 0 });
       const ResizeListener = () => {
-        window.addEventListener('resize', () => {
-          if (window.matchMedia('(orientation: portrait)').matches) {
-            setDragDisable(true);
-          } else {
-            setDragDisable(false);
-          }
-        });
+        if (window.matchMedia('(orientation: portrait)').matches) {
+          setPosition({ x: 0, y: 0 });
+          setDragDisable(true);
+        } else {
+          setDragDisable(false);
+        }
       }
-      ResizeListener();
-      return () => window.removeEventListener('resize', ResizeListener);
+      window.addEventListener('resize', ResizeListener);
+      return () => {
+        window.removeEventListener('resize', ResizeListener);
+      }
     }
   }, [isMobile]);
 

@@ -14,7 +14,7 @@ type Props = AppProps & {
   Component: Page;
 }
 
-axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://xn--sr3b80m9nbq6ao9b.com' : 'http://localhost:8000';
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://xn--s55bw1vqg.com' : 'http://localhost:8000';
 axios.defaults.withCredentials = true;
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }: Props) => {

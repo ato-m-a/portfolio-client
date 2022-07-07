@@ -38,6 +38,7 @@ const Terminal: Page = () => {
   // config
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isPortrait, setIsPortrait] = useState<boolean>(false);
   const [savedPosition, savePosition] = useState({ x: 0, y: 0 });
   const [expand, setExpand] = useState<boolean>(false);
   const [dragDisable, setDragDisable] = useState<boolean>(false);
@@ -56,10 +57,9 @@ const Terminal: Page = () => {
       setPosition({ x: 0, y: 0 });
       const ResizeListener = () => {
         if (window.matchMedia('(orientation: portrait)').matches) {
-          setPosition({ x: 0, y: 0 });
-          setExpand(true);
+          setIsPortrait(true);
         } else {
-          setExpand(false);
+          setIsPortrait(false);
         }
       }
       window.addEventListener('resize', ResizeListener);
@@ -68,6 +68,17 @@ const Terminal: Page = () => {
       }
     }
   }, [isMobile]);
+
+  useEffect(() => {
+    if (isPortrait) {
+      setPosition({ x: 0, y: 0 });
+      setExpand(true);
+    } else {
+      setPosition({ ...savedPosition });
+      setExpand(false);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPortrait]);
 
   useEffect(() => {
     setPosition({ ...olderConfig.position });
@@ -111,9 +122,9 @@ const Terminal: Page = () => {
                 <span className={styles.btn_red} onTouchStart={goHome} />
               </Link>
               <span className={styles.btn_yellow} 
-              onClick={() => expandTerminal(false)} onTouchStart={() => expandTerminal(false)} />
+              onClick={() => !isPortrait && expandTerminal(false)} onTouchStart={() => !isPortrait && expandTerminal(false)} />
               <span className={styles.btn_green} 
-              onClick={() => expandTerminal(true)} onTouchStart={() => expandTerminal(true)} />
+              onClick={() => !isPortrait && expandTerminal(true)} onTouchStart={() => !isPortrait && expandTerminal(true)} />
             </div>
             <div className={styles.terminal__title}>
               터미널

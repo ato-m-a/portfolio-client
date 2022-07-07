@@ -6,15 +6,13 @@ export type User = {
   email: string;
   username: string;
   role: string;
-  lastlogin: Date | null;
 };
 
 const initialState: User = {
   uuid: '',
   email: '',
   username: 'guest',
-  role: 'guest',
-  lastlogin: null
+  role: 'guest'
 };
 
 export const UserSlice = createSlice({

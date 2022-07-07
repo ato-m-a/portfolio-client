@@ -15,6 +15,9 @@ import styles from '../styles/terminal.module.scss';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { selectConfig, updateConfig } from '../store/reducers/terminal';
 
+/* components */
+import TerminalBody from '../components/terminal';
+
 const Terminal: Page = () => {
   const router = useRouter();
   const nodeRef = useRef(null);
@@ -97,8 +100,6 @@ const Terminal: Page = () => {
     }
   };
 
-  // terminal message state
-  
   return (
     <Fragment>
       <Draggable position={position} onDrag={(e, data) => trackPos(data)} nodeRef={nodeRef} 
@@ -119,10 +120,7 @@ const Terminal: Page = () => {
               터미널
             </div>
           </div>
-          <div className={styles.terminal__body} onMouseEnter={() => !expand && setDragDisable(true)}
-          onTouchStartCapture={() => !expand && setDragDisable(true)}>
-            (base) guest@hong ~ %
-          </div>
+          <TerminalBody onMouseEnter={() => !expand && setDragDisable(true)} onTouchStartCapture={() => !expand && setDragDisable(true)} />
         </section>
       </Draggable>
     </Fragment>

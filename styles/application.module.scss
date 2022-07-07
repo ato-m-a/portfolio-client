@@ -4,6 +4,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  user-select: none;
   z-index: 100;
 }
 
@@ -17,6 +18,7 @@
   text-align: center;
   color: rgb(160, 142, 200);
   font-size: 20px;
+  user-select: none;
 
   span {
     position: relative;

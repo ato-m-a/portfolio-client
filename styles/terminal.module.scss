@@ -85,20 +85,55 @@
     }
   }
 
-  .terminal__body {
+  .terminal__wrapper {
     cursor: text;
     background: rgba(0, 0, 0, 0.85);
     width: 100%;
     max-height: calc(100% - 28px);
     flex: 1;
-    overflow-y: scroll;
-    font-family: 'Monaco';
-    font-size: 15px;
-    color: #fff;
-    padding: 2px 5px;
-  }
+    padding: 2px 5px 5px 5px;
 
-  .terminal__body::selection {
-    background: rgba(82, 82, 82, 0.85) !important;
+    .terminal__body {
+      background: transparent;
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      font-family: 'Monaco';
+      font-size: 15px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+
+      .line {
+        height: auto;
+  
+        .session {
+          width: fit-content;
+          min-width: fit-content;
+          word-break: keep-all;
+          margin-right: 8px;
+        }
+  
+        .session::selection {
+          background: rgba(82, 82, 82, 0.85) !important;
+        }
+    
+        .input {
+          display: inline;
+          outline: none;
+          border: none;
+          background: transparent;
+          color: #fff;
+          font-size: 15px;
+          font-family: 'Monaco';
+          word-break: break-all;
+          caret-color: rgba(96, 96, 96, 0.85);
+        }
+  
+        .input::selection {
+          background: rgba(82, 82, 82, 0.85) !important;
+        }
+      }
+    }
   }
 }

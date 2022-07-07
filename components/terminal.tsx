@@ -69,26 +69,33 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
   }
 
   // 입력 (Enter)
-  const input = async (e: any) => {
-    e.preventDefault();
-    if (inputRef.current && !e.nativeEvent.isComposing) {
-      const message = inputRef.current.innerText;
-      inputRef.current.innerText = '';
+  const input = async (e: any): Promise<void> => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (inputRef.current && !e.nativeEvent.isComposing) {
+        const message = inputRef.current.innerText;
+        inputRef.current.innerText = '';
 
-      const executeResult = !executingCommand
-        ? await ExecuteCommand({ session: user.username, command: message, role: user.role ? user.role : 'guest' })
-        : await ExecuteCommand({ 
-          session: user.username,
-          command: message,
-          executingCommand,
-          executingCommandType,
-          role: user.role ? user.role : 'guest',
-          requiredToSave: tempMemory
-        });
+        const executeResult = !executingCommand
+          ? await ExecuteCommand({ session: user.username, command: message, role: user.role ? user.role : 'guest' })
+          : await ExecuteCommand({ 
+            session: user.username,
+            command: message,
+            executingCommand,
+            executingCommandType,
+            role: user.role ? user.role : 'guest',
+            requiredToSave: tempMemory
+          });
 
-      commandSetter(executeResult);
+        commandSetter(executeResult);
 
-      setMessages([...messages, ...executeResult.message]);
+        setMessages([...messages, ...executeResult.message]);
+      }
+    } else {
+      console.log(e);
+      if (e.nativeEvent.isComposing) {
+        e.preventDefault();
+      }
     }
   }
 
@@ -98,6 +105,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
     const FocusEvent = () => {
       document.getElementById('inputDiv').focus();
     };
+
     document.getElementById('terminalBody').addEventListener('click', FocusEvent);
     document.getElementById('terminalBody').addEventListener('touchstart', FocusEvent);
     return () => {
@@ -145,7 +153,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
         <div className={styles.terminal__body} id="terminalBody"
         onMouseEnter={onMouseEnter} onTouchStartCapture={onTouchStartCapture}>
           <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
-          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} role="textbox" 
+          onKeyDown={(e) => input(e)} spellCheck={false} role="textbox" 
           autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
         </div>
       </div>
@@ -171,7 +179,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
             }
           </span>
           <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
-          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} role="textbox"
+          onKeyDown={(e) => input(e)} spellCheck={false} role="textbox"
           autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
         </div>
       </div>

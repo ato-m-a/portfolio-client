@@ -57,9 +57,9 @@ const Terminal: Page = () => {
       const ResizeListener = () => {
         if (window.matchMedia('(orientation: portrait)').matches) {
           setPosition({ x: 0, y: 0 });
-          setDragDisable(true);
+          setExpand(true);
         } else {
-          setDragDisable(false);
+          setExpand(false);
         }
       }
       window.addEventListener('resize', ResizeListener);

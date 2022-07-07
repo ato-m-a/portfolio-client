@@ -6,9 +6,6 @@ type suCommand = CommandInput & {
 }
 
 export const su = async (input: suCommand): Promise<CommandOutput> => {
-  axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://xn--s55bw1vqg.com' : 'http://localhost:8000';
-  axios.defaults.withCredentials = true;
-
   const { command, session, executingCommand, executingCommandType, requiredToSave, sudo, role } = input;
 
   const username = command.split(' ')[1];
@@ -133,9 +130,6 @@ export const su = async (input: suCommand): Promise<CommandOutput> => {
 }
 
 export const suPasswd = async (input: suCommand): Promise<CommandOutput> => {
-  axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://xn--s55bw1vqg.com' : 'http://localhost:8000';
-  axios.defaults.withCredentials = true;
-
   const { command, session, executingCommand, executingCommandType, requiredToSave, sudo, role } = input;
 
   // 비어있을 때

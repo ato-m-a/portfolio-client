@@ -120,7 +120,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
 
     switch (execution) {
       case 'text_secure':
-        textSecure(true);
+        // textSecure(true);
         break;
       case 'updateUser':
         textSecure(false);
@@ -144,8 +144,8 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
       <div className={styles.terminal__wrapper}>
         <div className={styles.terminal__body} id="terminalBody"
         onMouseEnter={onMouseEnter} onTouchStartCapture={onTouchStartCapture}>
-          <div className={styles.input} ref={inputRef} id="inputDiv"
-          onKeyDown={(e) => e.key === 'Enter' && input(e)} contentEditable={true} spellCheck={false} />
+          <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
+          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} />
         </div>
       </div>
     )
@@ -169,8 +169,8 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
               : `(base) ${user ? user.username : session.username}@hong ~ %`
             }
           </span>
-          <div className={styles.input} ref={inputRef} id="inputDiv"
-          onKeyDown={(e) => e.key === 'Enter' && input(e)} contentEditable={true} spellCheck={false} />
+          <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
+          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} />
         </div>
       </div>
     </div>

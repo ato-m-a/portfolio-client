@@ -1,5 +1,6 @@
 import { signin } from './apps/signin';
 import { su, suPasswd } from './apps/su';
+import axios from 'axios';
 
 export type CommandInput = {
   command: string;
@@ -24,6 +25,9 @@ export type CommandOutput = {
 export const ExecuteCommand = async (inputData: CommandInput): Promise<CommandOutput> => {
   const { command, session, executingCommand, executingCommandType, requiredToSave } = inputData;
   const availableCommands = { signin: true, su: true, suPasswd: true };
+
+  axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://xn--s55bw1vqg.com' : 'http://localhost:8000';
+  axios.defaults.withCredentials = true;
 
   const mainCommand = command.split(' ')[0];
 

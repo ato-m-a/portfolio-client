@@ -20,6 +20,7 @@ import styles from '../styles/terminal.module.scss';
 
 const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElement => {
   const [HTMLLoaded, setHTMLLoaded] = useState<boolean>(false);
+  const [text, setText] = useState<string>('');
 
   const dispatch = useAppDispatch();
   // 인풋 ref
@@ -145,7 +146,8 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
         <div className={styles.terminal__body} id="terminalBody"
         onMouseEnter={onMouseEnter} onTouchStartCapture={onTouchStartCapture}>
           <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
-          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} />
+          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} role="textbox" 
+          autoCapitalize="off" autoCorrect="off" />
         </div>
       </div>
     )
@@ -170,7 +172,8 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
             }
           </span>
           <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
-          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} />
+          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} role="textbox"
+          autoCapitalize="off" autoCorrect="off" />
         </div>
       </div>
     </div>

@@ -108,25 +108,34 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // 입력 (Enter)
+  // 입력 handler
   const input = async (e: any) => {
-    e.preventDefault();
-    if (inputRef.current && !e.nativeEvent.isComposing) {
-      const inputData: Command = {
-        session: user.username,
-        text: inputRef.current.innerText,
-        running: terminalState && terminalState.running,
-        args: terminalState && terminalState.args,
-        isSecure: terminalState && terminalState.isSecure,
-        toSave: terminalState && terminalState.toSave,
-        sudo: sudoState && {
-          next: sudoState.next,
-          command: sudoState.command
-        }
-      };
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (inputRef.current && !e.nativeEvent.isComposing) {
+        const inputData: Command = {
+          session: user.username,
+          text: inputRef.current.innerText,
+          running: terminalState && terminalState.running,
+          args: terminalState && terminalState.args,
+          isSecure: terminalState && terminalState.isSecure,
+          toSave: terminalState && terminalState.toSave,
+          sudo: sudoState && {
+            next: sudoState.next,
+            command: sudoState.command
+          }
+        };
 
-      inputRef.current.innerText = '';
-      MessageService.sendCommand(inputData);
+        inputRef.current.innerText = '';
+        MessageService.sendCommand(inputData);
+      }
+    } else {
+      if (e.ctrlKey && e.key === 'c') {
+        const session = document.getElementById('line-session').innerText;
+        const text = terminalState && terminalState.isSecure ? '' : document.getElementById('inputDiv').innerText;
+        MessageService.sendMessage({ session, text });
+        inputRef.current.innerText = '';
+      }
     }
   }
 
@@ -172,7 +181,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
           </div>
         ))}
         <div className={styles.line}>
-          <span className={styles.session}>
+          <span className={styles.session} id="line-session">
             {
               terminalState
               ? `${terminalState.args}:`
@@ -180,7 +189,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
             }
           </span>
           <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
-          onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} role="textbox"
+          onKeyDown={(e) => input(e)} spellCheck={false} role="textbox"
           autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
         </div>
       </div>

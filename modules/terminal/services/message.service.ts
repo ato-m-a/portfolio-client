@@ -14,5 +14,6 @@ export const MessageService = {
     const result = await MessageMiddleware({ ...command });
     subject$.next([...result]);
   },
+  sendMessage: (command: Command) => subject$.next([{ session: command.session, text: command.text }]),
   onConsole: () => subject$.asObservable()
 };

@@ -1,10 +1,57 @@
 {
-  "name": "Hong",
-  "short_name": "Hong",
-  "theme_color": "#42148f",
-  "background_color": "#42148f",
+  "name": "WEB FE 홍준혁 포트폴리오",
+  "short_name": "홍준혁 포트폴리오",
+  "theme_color": "#252525",
+  "background_color": "#252525",
   "display": "standalone",
   "orientation": "portrait-primary",
   "scope": "/",
-  "start_url": "/"
+  "start_url": "/",
+  "icons": [
+    {
+     "src": "/icons/android-icon-36x36.png",
+     "sizes": "36x",
+     "type": "image/png"
+    },
+    {
+     "src": "/icons/android-icon-48x48.png",
+     "sizes": "48x",
+     "type": "image/png"
+    },
+    {
+     "src": "/icons/android-icon-72x72.png",
+     "sizes": "72x",
+     "type": "image/png"
+    },
+    {
+     "src": "/icons/android-icon-96x96.png",
+     "sizes": "96x",
+     "type": "image/png"
+    },
+    {
+     "src": "/icons/android-icon-144x144.png",
+     "sizes": "144x",
+     "type": "image/png"
+    },
+    {
+     "src": "/icons/android-icon-192x192.png",
+     "sizes": "192x",
+     "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x",
+      "type": "image/png"
+    }
+   ]
 }

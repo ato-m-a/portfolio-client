@@ -44,7 +44,8 @@ export const sudo = async (command: Command): Promise<Command[] | void> => {
       }
 
       initState();
-      return next({ ...command, sudo });
+      const nextResult = await next({ ...command, sudo });
+      return [{ ...nextResult }];
     // 거짓
     } else {
       initState();

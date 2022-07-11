@@ -2,6 +2,7 @@
   @font-face {
     font-family: $style-name;
     src: url($file) format('truetype');
+    font-display: swap;
   }
 }
 
@@ -13,16 +14,19 @@
   font-family: 'Apple SD Gothic Neo';
   src: url('/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf') format('truetype');
   font-weight: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Apple SD Gothic Neo';
   src: url('/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf') format('truetype');
   font-weight: light;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Apple SD Gothic Neo';
   src: url('/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf') format('truetype');
   font-weight: bold;
+  font-display: swap;
 }
 
 // DejaVu Sans Mono
@@ -30,17 +34,20 @@
   font-family: 'DejaVu Sans Mono';
   src: url('/fonts/DejavuSansMono/DejaVuSansMono.ttf') format('truetype');
   font-weight: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'DejaVu Sans Mono';
   src: url('/fonts/DejavuSansMono/DejaVuSansMono-Oblique.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: 'DejaVu Sans Mono';
   src: url('/fonts/DejavuSansMono/DejaVuSansMono-Bold.ttf') format('truetype');
   font-weight: bold;
+  font-display: swap;
 }
 
 // FiraCode
@@ -48,26 +55,31 @@
   font-family: 'FiraCode';
   src: url('/fonts/FiraCode/FiraCode-Light.ttf') format('truetype');
   font-weight: lighter;
+  font-display: swap;
 }
 @font-face {
   font-family: 'FiraCode';
   src: url('/fonts/FiraCode/FiraCode-Retina.ttf') format('truetype');
   font-weight: light;
+  font-display: swap;
 }
 @font-face {
   font-family: 'FiraCode';
   src: url('/fonts/FiraCode/FiraCode-Regular.ttf') format('truetype');
   font-weight: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'FiraCode';
   src: url('/fonts/FiraCode/FiraCode-SemiBold.ttf') format('truetype');
   font-weight: bold;
+  font-display: swap;
 }
 @font-face {
   font-family: 'FiraCode';
   src: url('/fonts/FiraCode/FiraCode-Bold.ttf') format('truetype');
   font-weight: bolder;
+  font-display: swap;
 }
 
 // Monaco

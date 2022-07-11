@@ -1,6 +1,6 @@
 import { Command } from '../common';
-import { SudoService } from '../services/sudo.service';
-import { TerminalService } from '../services/terminal.service';
+import { SudoService } from '../services';
+import { TerminalService } from '../services';
 import app from './index';
 import axios from 'axios';
 

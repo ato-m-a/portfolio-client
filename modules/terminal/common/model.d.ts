@@ -1,4 +1,4 @@
-import { SudoState } from '../services/sudo.service';
+export { SudoState } from '../services';
 
 export type Command = {
   session: string;

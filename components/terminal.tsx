@@ -6,11 +6,8 @@ import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { selectUser, updateUser, User, vacateUser } from '../store/reducers/users';
 
 /* terminal */
-import type { Command, TerminalState, ActionState } from '../modules/terminal/common';
-import { MessageService } from '../modules/terminal';
-import { TerminalService } from '../modules/terminal/services/terminal.service';
-import { SudoService, SudoState } from '../modules/terminal/services/sudo.service';
-import { ActionService } from '../modules/terminal/services/action.service';
+import type { Command, TerminalState, ActionState, SudoState } from '../modules/terminal/common';
+import { MessageService, TerminalService, SudoService, ActionService } from '../modules/terminal';
 
 type Props = {
   onMouseEnter: () => void;

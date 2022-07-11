@@ -1,6 +1,6 @@
 import { Command } from '../common';
-import { TerminalService } from '../services/terminal.service';
-import { ActionService } from '../services/action.service';
+import { TerminalService } from '../services';
+import { ActionService } from '../services';
 import axios from 'axios';
 
 export const su = async (command: Command) => {

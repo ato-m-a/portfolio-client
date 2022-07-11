@@ -120,7 +120,8 @@ const Terminal: Page = () => {
               터미널
             </div>
           </div>
-          <TerminalBody onMouseEnter={() => !expand && setDragDisable(true)} onTouchStartCapture={() => !expand && setDragDisable(true)} />
+          <TerminalBody isMobile={isMobile}
+          onMouseEnter={() => !expand && setDragDisable(true)} onTouchStartCapture={() => !expand && setDragDisable(true)} />
         </section>
       </Draggable>
     </Fragment>

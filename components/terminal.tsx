@@ -1,4 +1,4 @@
-import { ReactElement, useState, useRef, useEffect } from 'react';
+import { ReactElement, useState, useRef, useEffect, KeyboardEvent } from 'react';
 import store from '../store';
 
 /* redux */
@@ -12,15 +12,23 @@ import { MessageService, TerminalService, SudoService, ActionService } from '../
 type Props = {
   onMouseEnter: () => void;
   onTouchStartCapture: () => void;
+  isMobile: boolean;
 }
+
+/* component */
+import AndroidInput from './input';
 
 /* styles */
 import styles from '../styles/terminal.module.scss';
 
-const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElement => {
+/* icons */
+import { RiPencilFill } from 'react-icons/ri';
+
+const TerminalBody = ({ onMouseEnter, onTouchStartCapture, isMobile }: Props): ReactElement => {
   const [HTMLLoaded, setHTMLLoaded] = useState<boolean>(false);
   // 인풋 ref
-  const inputRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const androidRef = useRef<any>(null);
 
   const dispatch = useAppDispatch();
 
@@ -109,9 +117,12 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
   }, []);
 
   // 입력 handler
-  const input = async (e: any) => {
+  const input = async (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
+
+      androidRef.current && androidRef.current.vacateInput();
+
       if (inputRef.current && !e.nativeEvent.isComposing) {
         const inputData: Command = {
           session: user.username,
@@ -156,6 +167,16 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
     }
   }, []);
 
+  // for android
+  const [inputDispose, setInputDispose] = useState<boolean>(false);
+  const onChangeForAndroid = (text: string) => {
+    inputRef.current.innerText = text;
+  };
+  const closeInput = (e: any) => {
+    e.preventDefault();
+    setInputDispose(false);
+  }
+
   // return static html
   if (!HTMLLoaded) {
     return (
@@ -174,6 +195,12 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
     <div className={styles.terminal__wrapper}>
       <div className={styles.terminal__body} id="terminalBody"
       onMouseEnter={onMouseEnter} onTouchStartCapture={onTouchStartCapture}>
+        {
+          inputDispose && 
+          <AndroidInput onChange={onChangeForAndroid} close={closeInput} ref={androidRef}
+          isSecure={terminalState && terminalState.isSecure}
+          oldText={inputRef.current && inputRef.current.innerText} onKeyDown={input} />
+        }
         {messages.map((message, index) => (
           <div className={styles.line} key={index}>
             <span className={styles.session}>{message.session}</span>
@@ -188,9 +215,16 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
               : `(base) ${user?.username}@hong ~ %`
             }
           </span>
-          <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
-          onKeyDown={(e) => input(e)} spellCheck={false} role="textbox"
-          autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
+            <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={!isMobile}
+            onKeyDown={(e) => input(e)} spellCheck={false} role="textbox"
+            autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
+            {
+              isMobile && navigator && navigator.userAgent.toLowerCase().includes('android') &&
+              !inputDispose &&
+              <div className={styles.android__btn} onTouchStart={() => setInputDispose(true)}>
+                <RiPencilFill />
+              </div>
+            }
         </div>
       </div>
     </div>

@@ -103,12 +103,15 @@
       color: #fff;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
 
       .line {
         max-width: 100%;
         height: auto;
         word-wrap: break-word;
         word-break: break-all;
+        display: flex;
+        flex-direction: row;
   
         .session {
           width: fit-content;
@@ -136,6 +139,13 @@
   
         .input::selection {
           background: rgba(82, 82, 82, 0.85) !important;
+        }
+
+        .android__btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
         }
       }
     }

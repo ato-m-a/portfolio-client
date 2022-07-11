@@ -43,7 +43,6 @@ export const sudo = async (command: Command): Promise<Command[] | void> => {
         return [{ session: `sudo: ${sudo.next}:`, text: 'command not found' }];
       }
 
-      initState();
       const nextResult = await next({ ...command, sudo });
       return [{ ...nextResult }];
     // 거짓

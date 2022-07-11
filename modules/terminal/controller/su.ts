@@ -46,6 +46,7 @@ export const su = async (command: Command) => {
       }
 
       if (username === 'guest') {
+        await axios.delete('/api/v1/auth/signout');
         ActionService.setAction({ action: 'vacateUser' });
         initState();
         return [];

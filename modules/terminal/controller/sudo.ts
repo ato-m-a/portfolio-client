@@ -40,7 +40,7 @@ export const sudo = async (command: Command): Promise<Command[] | void> => {
       // 실행할 앱 없음
       if (!next) {
         initState();
-        return [{ session: `sudo: ${sudo.next}`, text: 'command not found' }];
+        return [{ session: `sudo: ${sudo.next}:`, text: 'command not found' }];
       }
 
       initState();

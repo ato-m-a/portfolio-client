@@ -167,6 +167,17 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture, isMobile }: Props): R
     }
   }, []);
 
+  // android detector
+  const [isAndroid, setIsAndroid] = useState<boolean>(false);
+  useEffect(() => {
+    if (isMobile && navigator) {
+      const userAgent = navigator.userAgent.toLowerCase();
+      if (userAgent.includes('android')) {
+        setIsAndroid(true);
+      }
+    }
+  }, [isMobile]);
+
   // for android
   const [inputDispose, setInputDispose] = useState<boolean>(false);
   const onChangeForAndroid = (text: string) => {
@@ -215,12 +226,11 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture, isMobile }: Props): R
               : `(base) ${user?.username}@hong ~ %`
             }
           </span>
-            <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={!isMobile && navigator && !navigator.userAgent.toLowerCase().includes('android')}
+            <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={!isAndroid}
             onKeyDown={(e) => input(e)} spellCheck={false} role="textbox"
             autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
             {
-              isMobile && navigator && navigator.userAgent.toLowerCase().includes('android') &&
-              !inputDispose &&
+              isMobile && navigator && isAndroid && !inputDispose &&
               <div className={styles.android__btn} onTouchStart={() => setInputDispose(true)}>
                 <RiPencilFill />
               </div>

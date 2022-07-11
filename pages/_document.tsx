@@ -37,7 +37,7 @@ const Document = () => {
         <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="/splashscreens/ipadpro3_splash.png" />
         <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/splashscreens/ipadpro2_splash.png" />
         {/* for android */}
-        <link rel="mask-icon" href="/icons/icon-512x512.png" color="#252525" />
+        <link rel="mask-icon" href="/icons/icon-192x192.png" color="#252525" />
         <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />

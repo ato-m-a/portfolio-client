@@ -215,7 +215,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture, isMobile }: Props): R
               : `(base) ${user?.username}@hong ~ %`
             }
           </span>
-            <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={!isMobile}
+            <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={!isMobile && navigator && !navigator.userAgent.toLowerCase().includes('android')}
             onKeyDown={(e) => input(e)} spellCheck={false} role="textbox"
             autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
             {

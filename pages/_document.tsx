@@ -21,6 +21,9 @@ const Document = () => {
         <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="WEB FE 홍준혁 포트폴리오" />
         <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />

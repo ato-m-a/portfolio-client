@@ -45,10 +45,9 @@ const Document = () => {
         <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png" />
         {/* for android */}
         <link rel="mask-icon" href="/icons/icon-192x192.png" color="#252525" />
-        <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="384x384" href="/icons/icon-384x384.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
       </Head>

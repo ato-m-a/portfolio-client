@@ -196,7 +196,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture, isMobile }: Props): R
         onMouseEnter={onMouseEnter} onTouchStartCapture={onTouchStartCapture}>
           <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}
           onKeyDown={(e) => e.key === 'Enter' && input(e)} spellCheck={false} role="textbox" 
-          autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
+          autoCapitalize="off" autoCorrect="off" />
         </div>
       </div>
     )
@@ -228,7 +228,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture, isMobile }: Props): R
           </span>
             <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={!isAndroid}
             onKeyDown={(e) => input(e)} spellCheck={false} role="textbox"
-            autoCapitalize="off" autoCorrect="off" aria-autocomplete="none" />
+            autoCapitalize="off" autoCorrect="off" />
             {
               isMobile && navigator && isAndroid && !inputDispose &&
               <div className={styles.android__btn} onTouchStart={() => setInputDispose(true)}>

@@ -52,7 +52,8 @@ const AndroidInput = forwardRef((props: Props, ref) => {
         <RiPencilFill />
       </label>
       <input type="text" value={text} id="input-android" onChange={localOnChange}
-      onKeyDown={(e) => onKeyDown(e)} ref={inputRef} placeholder='명령어를 입력해주세요.' />
+      onKeyDown={(e) => onKeyDown(e)} ref={inputRef} placeholder='명령어를 입력해주세요.'
+      autoCapitalize="off" autoCorrect="off" spellCheck={false} autoComplete="off" />
       <div className={styles.close__icon} onClick={(e) => close(e)}>
         <AiOutlineClose />
       </div>

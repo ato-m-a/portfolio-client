@@ -7,10 +7,32 @@ const Document = () => {
         <meta charSet="utf-8" />
         <meta name="description" content="홍준혁 포트폴리오" />
         <meta name="keywords" content="포트폴리오, nextjs, nestjs, pwa" />
+        <meta name="author" content="ato-m-a" />
         <meta name="theme-color" content="#fff" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preload" href="/images/background.jpeg" as="image" />
-        <link rel="preload" href="/images/terminal.png" as="image" />
+        {/* preload */}
+        <link rel="preload" href="/images/background.jpeg" type="image/png" as="image" />
+        <link rel="preload" href="/images/terminal.png" type="image/png" as="image" />
+        <link rel="preload" href="/fonts/DejaVuSansMono/DejaVuSansMono-Bold.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/DejaVuSansMono/DejaVuSansMono-BoldOblique.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/DejaVuSansMono/DejaVuSansMono-Oblique.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/DejaVuSansMono/DejaVuSansMono.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-Bold.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-Light.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-Medium.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-Regular.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-Retina.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-SemiBold.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/Monaco/Monaco.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoEB.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoH.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoM.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoSB.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoT.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoUL.ttf" type="font/ttf" as="font" />
         {/* for apple */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />

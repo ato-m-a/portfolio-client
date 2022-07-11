@@ -1,18 +1,20 @@
 import { ReactElement, useState, useRef, useEffect } from 'react';
-import { ExecuteCommand, CommandOutput } from '../modules/commands';
+import store from '../store';
 
 /* redux */
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { selectUser, updateUser, User, vacateUser } from '../store/reducers/users';
 
+/* terminal */
+import type { Command, TerminalState, ActionState } from '../modules/terminal/common';
+import { MessageService } from '../modules/terminal';
+import { TerminalService } from '../modules/terminal/services/terminal.service';
+import { SudoService, SudoState } from '../modules/terminal/services/sudo.service';
+import { ActionService } from '../modules/terminal/services/action.service';
+
 type Props = {
   onMouseEnter: () => void;
   onTouchStartCapture: () => void;
-}
-
-type Message = {
-  session: string;
-  message: string;
 }
 
 /* styles */
@@ -20,79 +22,118 @@ import styles from '../styles/terminal.module.scss';
 
 const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElement => {
   const [HTMLLoaded, setHTMLLoaded] = useState<boolean>(false);
-
-  const dispatch = useAppDispatch();
   // 인풋 ref
   const inputRef = useRef<HTMLDivElement>(null);
 
-  // 커맨드 임시 저장소
-  const [tempMemory, setTempMemory] = useState<any>(null);
+  const dispatch = useAppDispatch();
 
-  // 세션
+  // user session store subscribe
   const session = useAppSelector(selectUser);
   const [user, setUser] = useState<User>(null);
   useEffect(() => {
-    setUser(session)
+    setUser(session);
   }, [session]);
+  useEffect(() => {
+    const subscription = store.subscribe(() => {
+      const user = store.getState().user;
+      setUser(user);
+    });
+    return () => subscription();
+  }, []);
 
-  // 메시지
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [executingCommand, setExecutingCommand] = useState<string>(null);
-  const [executingCommandType, setExecutingCommandType] = useState<string>(null);
-  const [execution, setExecution] = useState<any>(null);
+  // terminal message subscribe
+  const [messages, setMessages] = useState<Command[]>([]);
+  useEffect(() => {
+    const subscription = MessageService.onConsole().subscribe((terminalMessage: Command[]) => {
+      setMessages(messages => [...messages, ...terminalMessage]);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
-  const commandSetter = (result: CommandOutput): void => {
-    // 응답 받은 유효한 커맨드가 있을 때
-    try {
-      setExecutingCommand(result.executingCommand);
-    } catch {
-      setExecutingCommand(null);
+  // terminal state subscribe
+  const [terminalState, setTerminalState] = useState<TerminalState | null>(null);
+  useEffect(() => {
+    const subscription = TerminalService.onTerminal().subscribe((state: TerminalState) => {
+      // 터미널 상태 변화 감지
+      if (state && Object.keys(state).length !== 0) {
+        setTerminalState(state);
+      } else {
+        setTerminalState(null);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (terminalState) {
+      // if isSecure
+      if (terminalState.isSecure) {
+        document.getElementById('inputDiv').style.color = 'transparent';
+      } else {
+        document.getElementById('inputDiv').style.color = '#fff';
+      }
+    } else {
+      document.getElementById('inputDiv').style.color = '#fff';
     }
-    // 응답 받은 유효한 커맨드 타입이 있을 때 (다음 커맨드)
-    try {
-      setExecutingCommandType(result.executingCommandType);
-    } catch {
-      setExecutingCommandType(null);
-    }
-    // 저장해야 할 것이 있으면
-    try {
-      setTempMemory(result.requiredToSave);
-    } catch {
-      setTempMemory(null);
-    }
-    // 실행해야 할 것이 있으면
-    try {
-      setExecution(result.requiredToExecute);
-    } catch {
-      setExecution(null);
-    }
-  }
+  }, [terminalState]);
+
+  // terminal sudo state subscribe
+  const [sudoState, setSudoState] = useState<SudoState | null>(null);
+  useEffect(() => {
+    const subscription = SudoService.onSudo().subscribe((state: SudoState) => {
+      // 상태 변화 감지
+      if (state && Object.keys(state).length !== 0) {
+        setSudoState(state);
+      } else {
+        setSudoState(null);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // terminal action state subscribe
+  useEffect(() => {
+    const subscription = ActionService.onAction().subscribe((state: ActionState) => {
+      if (state && Object.keys(state).length !== 0) {
+        const { action, payload } = state;
+
+        switch (action) {
+          case 'setUser':
+            dispatch(updateUser(payload));
+            break;
+          case 'vacateUser':
+            dispatch(vacateUser());
+            break;
+        }
+      }
+    });
+    return () => subscription.unsubscribe();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // 입력 (Enter)
   const input = async (e: any) => {
     e.preventDefault();
     if (inputRef.current && !e.nativeEvent.isComposing) {
-      const message = inputRef.current.innerText;
+      const inputData: Command = {
+        session: user.username,
+        text: inputRef.current.innerText,
+        running: terminalState && terminalState.running,
+        args: terminalState && terminalState.args,
+        isSecure: terminalState && terminalState.isSecure,
+        toSave: terminalState && terminalState.toSave,
+        sudo: sudoState && {
+          next: sudoState.next,
+          command: sudoState.command
+        }
+      };
+
       inputRef.current.innerText = '';
-
-      const executeResult = !executingCommand
-        ? await ExecuteCommand({ session: user.username, command: message, role: user.role ? user.role : 'guest' })
-        : await ExecuteCommand({ 
-          session: user.username,
-          command: message,
-          executingCommand,
-          executingCommandType,
-          role: user.role ? user.role : 'guest',
-          requiredToSave: tempMemory
-        });
-
-      commandSetter(executeResult);
-
-      setMessages([...messages, ...executeResult.message]);
+      MessageService.sendCommand(inputData);
     }
   }
 
-  // 포커스 이벤트리스너
+  // set focus eventlistener
   useEffect(() => {
     setHTMLLoaded(true);
     const FocusEvent = () => {
@@ -109,37 +150,7 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
     }
   }, []);
 
-  // 실행
-  useEffect(() => {
-    const textSecure = (activation: boolean) => {
-      if (activation) {
-        document.getElementById('inputDiv').style.color = 'transparent';
-      } else {
-        document.getElementById('inputDiv').style.color = '#fff';
-      }
-    }
-
-    switch (execution) {
-      case 'text_secure':
-        textSecure(true);
-        break;
-      case 'updateUser':
-        textSecure(false);
-        dispatch(updateUser(tempMemory));
-        setUser(tempMemory);
-        break;
-      case 'vacateUser':
-        textSecure(false);
-        setUser(null);
-        dispatch(vacateUser());
-        break;
-      default:
-        textSecure(false);
-        break;
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [execution]);
-
+  // return static html
   if (!HTMLLoaded) {
     return (
       <div className={styles.terminal__wrapper}>
@@ -160,15 +171,15 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture }: Props): ReactElemen
         {messages.map((message, index) => (
           <div className={styles.line} key={index}>
             <span className={styles.session}>{message.session}</span>
-            <div className={styles.input}>{message.message}</div>
+            <div className={styles.input}>{message.text}</div>
           </div>
         ))}
         <div className={styles.line}>
           <span className={styles.session}>
             {
-              executingCommandType
-              ? `${executingCommandType}:`
-              : `(base) ${user ? user.username : session.username}@hong ~ %`
+              terminalState
+              ? `${terminalState.args}:`
+              : `(base) ${user?.username}@hong ~ %`
             }
           </span>
           <div className={styles.input} ref={inputRef} id="inputDiv" contentEditable={true}

@@ -27,7 +27,7 @@ const StatusBar = (): ReactElement => {
     const watchTime = setInterval(() => {
       setTime(stringFormat(new Date()));
     }, 1000);
-    return (() => clearInterval(watchTime));
+    return () => clearInterval(watchTime);
   }, []);
 
   return (

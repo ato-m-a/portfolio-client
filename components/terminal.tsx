@@ -157,8 +157,8 @@ const TerminalBody = ({ onMouseEnter, onTouchStartCapture, isMobile }: Props): R
       document.getElementById('inputDiv').focus();
     };
     
-    document.getElementById('terminalBody').addEventListener('click', FocusEvent);
-    document.getElementById('terminalBody').addEventListener('touchstart', FocusEvent);
+    document.getElementById('terminalBody').addEventListener('click', FocusEvent, { passive: true });
+    document.getElementById('terminalBody').addEventListener('touchstart', FocusEvent, { passive: true });
     return () => {
       if (document.getElementById('terminalBody')) {
         document.getElementById('terminalBody').removeEventListener('click', FocusEvent);

@@ -24,6 +24,7 @@ const Document = () => {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="WEB FE 홍준혁 포트폴리오" />
+        <link rel="mask-icon" href="/icons/icon-192x192.png" color="#252525" />
         <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />

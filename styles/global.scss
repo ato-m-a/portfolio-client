@@ -87,7 +87,7 @@
 
 @media (prefers-color-scheme: dark) {
   #__next {
-    background-image: url('/images/background.jpeg');
+    background-image: url('/images/mac_bg_dark.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -97,7 +97,7 @@
 
 @media (prefers-color-scheme: light) {
   #__next {
-    background-image: url('/images/background-light.jpeg');
+    background-image: url('/images/mac_bg_light.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

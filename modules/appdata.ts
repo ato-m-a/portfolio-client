@@ -7,12 +7,12 @@ export type AppType = {
 export const AppData: AppType[] = [
   {
     name: '터미널',
-    src: 'terminal.png',
+    src: 'icon_terminal_cute.svg',
     path: '/terminal'
   },
   {
     name: '시스템 환경설정',
-    src: 'system.png',
+    src: 'icon_system.svg',
     path: '/system'
   }
 ];

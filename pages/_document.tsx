@@ -5,10 +5,28 @@ const Document = () => {
     <Html lang="ko">
       <Head>
         <meta charSet="utf-8" />
-        <meta name="description" content="홍준혁 포트폴리오" />
-        <meta name="keywords" content="포트폴리오, nextjs, nestjs, pwa" />
+        {/* for SEO */}
+        <meta name="description" content="WEB FE 홍준혁 포트폴리오 입니다." />
+        <meta name="keywords" content="프론트엔드, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />
         <meta name="theme-color" content="#fff" />
+        {/* opengraph */}
+        <meta property="og:site_name" content="프론트엔드 개발자 홍준혁 포트폴리오" />
+        <meta property="og:title" content="WEB FE 홍준혁 포트폴리오" />
+        <meta property="og:description" content="WEB FE 홍준혁 포트폴리오 입니다." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://홍준혁.com" />
+        <meta property="og:image" content="/images/original_image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="ko_KR" />
+        {/* twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="WEB FE 홍준혁 포트폴리오" />
+        <meta name="twitter:description" content="WEB FE 홍준혁 포트폴리오 입니다." />
+        <meta name="twitter:url" content="https://홍준혁.com" />
+        <meta name="twitter:image" content="/images/original_image.png" />
+        {/* manifest */}
         <link rel="manifest" href="/manifest.json" />
         {/* preload */}
         <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image" />

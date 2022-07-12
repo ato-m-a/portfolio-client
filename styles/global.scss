@@ -85,23 +85,61 @@
 // Monaco
 @include font-face('Monaco', '/fonts/Monaco/Monaco.ttf');
 
+// background color for ios pwa
+@media screen and (max-width: 768px) {
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: linear-gradient(to right, rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143)) !important;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    body {
+      background-color: linear-gradient(to right, rgb(235, 220, 235), rgb(235, 220, 235), rgb(230, 211, 230)) !important;
+    }
+  }
+  
+}
+
+@media screen and (max-height: 500px) {
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143)) !important;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    body {
+      background-color: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221)) !important;
+    }
+  }
+}
+
 @media (prefers-color-scheme: dark) {
-  #__next {
-    background-image: url('/images/mac_bg_dark.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+  body {
+    background-color: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
+    
+    #__next {
+      background-image: url('/images/mac_bg_dark.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
   }
 }
 
 @media (prefers-color-scheme: light) {
-  #__next {
-    background-image: url('/images/mac_bg_light.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+  body {
+    background-color: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
+    
+    #__next {
+      background-image: url('/images/mac_bg_light.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
   }
 }
 

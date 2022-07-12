@@ -29,8 +29,6 @@ const Document = () => {
         {/* manifest */}
         <link rel="manifest" href="/manifest.json" />
         {/* preload */}
-        <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image" />
-        <link rel="preload" href="/images/background-light.jpeg" type="image/jpeg" as="image" />
         <link rel="preload" href="/images/terminal.png" type="image/png" as="image" />
         <link rel="preload" href="/images/system.png" type="image/png" as="image" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />

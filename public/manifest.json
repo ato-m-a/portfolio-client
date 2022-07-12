@@ -1,10 +1,10 @@
 {
   "name": "WEB FE 홍준혁 포트폴리오",
   "short_name": "홍준혁 포트폴리오",
-  "theme_color": "transparent",
+  "theme_color": "#252525",
   "background_color": "#252525",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [

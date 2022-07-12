@@ -86,17 +86,24 @@
 @include font-face('Monaco', '/fonts/Monaco/Monaco.ttf');
 
 @media (prefers-color-scheme: dark) {
-  #__next {
-    // background-image: url('/images/mac_bg_dark.svg');
-    background-image: url('/images/background.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+  body {
+    background-color: rgb(41, 15, 155);
+
+    #__next {
+      // background-image: url('/images/mac_bg_dark.svg');
+      background-image: url('/images/background.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
   }
 }
 
 @media (prefers-color-scheme: light) {
+  body {
+    background-color: rgb(233, 220, 234);
+  }
   #__next {
     // background-image: url('/images/mac_bg_light.svg');
     background-image: url('/images/background-light.jpeg');
@@ -114,10 +121,6 @@
   image-rendering: -webkit-optimize-contrast;
   transform: translateZ(0);
   backface-visibility: hidden;
-}
-
-body {
-  background-color: #718628;
 }
 
 html, body {

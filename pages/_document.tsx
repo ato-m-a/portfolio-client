@@ -5,6 +5,7 @@ const Document = () => {
     <Html lang="ko">
       <Head>
         <meta charSet="utf-8" />
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'none'"></meta>
         {/* for SEO */}
         <meta name="description" content="WEB FE 홍준혁 포트폴리오 입니다." />
         <meta name="keywords" content="프론트엔드, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />

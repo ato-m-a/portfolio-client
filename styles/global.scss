@@ -85,6 +85,26 @@
 // Monaco
 @include font-face('Monaco', '/fonts/Monaco/Monaco.ttf');
 
+@media (prefers-color-scheme: dark) {
+  #__next {
+    background-image: url('/images/background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #__next {
+    background-image: url('/images/background-light.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -108,10 +128,5 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('/images/background.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
   }
 }

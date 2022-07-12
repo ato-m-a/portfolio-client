@@ -11,8 +11,9 @@ const Document = () => {
         <meta name="theme-color" content="#fff" />
         <link rel="manifest" href="/manifest.json" />
         {/* preload */}
-        <link rel="preload" href="/images/background.jpeg" type="image/png" as="image" />
+        <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image" />
         <link rel="preload" href="/images/terminal.png" type="image/png" as="image" />
+        <link rel="preload" href="/images/background-light.jpeg" type="image/jpeg" as="image" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />

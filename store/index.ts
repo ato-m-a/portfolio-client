@@ -7,6 +7,7 @@ import persistStore from 'redux-persist/lib/persistStore';
 /* reducers */
 import userReducer from './reducers/users';
 import terminalReducer from './reducers/terminal';
+import colorReducer from './reducers/colorscheme';
 
 /* noop storage */
 const createNoopStorage = () => {
@@ -27,14 +28,15 @@ const storage = typeof window !== 'undefined' ? createWebStorage('local') : crea
 
 const reducers = combineReducers({
   user: userReducer,
-  terminal: terminalReducer
+  terminal: terminalReducer,
+  color: colorReducer
 });
 
 const persistedReducer = persistReducer({
   key: 'root',
   storage,
   version: 1,
-  whitelist: ['user', 'terminal']
+  whitelist: ['user', 'terminal', 'color']
 }, reducers);
 
 const store = configureStore({

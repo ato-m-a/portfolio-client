@@ -14,7 +14,7 @@ const Docker = (): ReactElement => {
         <nav className={styles.application__container}>
           <ul>
             {
-              AppData().map(app => (
+              AppData.map(app => (
                 <Application src={app.src} name={app.name} path={app.path} key={app.name} />
               ))
             }

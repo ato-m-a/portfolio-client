@@ -1,3 +1,15 @@
+@media (prefers-color-scheme: dark) {
+  .status {
+    color: rgb(160, 142, 200);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .status {
+    color: rgb(0, 0, 100);
+  }
+}
+
 .app {
   width: 70px;
   flex: 1;
@@ -16,7 +28,6 @@
   width: 100%;
   height: 18px;
   text-align: center;
-  color: rgb(160, 142, 200);
   font-size: 20px;
   user-select: none;
 

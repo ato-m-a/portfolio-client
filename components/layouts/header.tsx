@@ -15,7 +15,7 @@ import { AiFillHome } from 'react-icons/ai';
 const GeneralHeader = (): ReactElement => {
   const router = useRouter();
 
-  const pathname = router.pathname !== '/' ? AppData().filter(app => {
+  const pathname = router.pathname !== '/' ? AppData.filter(app => {
     return app.path === router.pathname;
   })[0].name : '홈페이지';
 

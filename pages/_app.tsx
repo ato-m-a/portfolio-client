@@ -25,7 +25,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
     <Provider store={store}>
       <Head>
         <title>WEB FE 홍준혁 포트폴리오</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no" />
       </Head>
       <Layout>
         {getLayout(<Component {...pageProps} />)}

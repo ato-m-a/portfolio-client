@@ -41,14 +41,12 @@ export const su = async (command: Command) => {
 
       // username 미기입
       if (!username || username === '') {
-        initState();
         return [{ session: 'sudo: su:', text: 'Sorry' }];
       }
 
       if (username === 'guest') {
         await axios.delete('/api/v1/auth/signout');
         ActionService.setAction({ action: 'vacateUser' });
-        initState();
         return [];
       }
 
@@ -63,10 +61,8 @@ export const su = async (command: Command) => {
             role: response.data.role
           }
         });
-        initState();
         return [];
       } catch {
-        initState();
         return [{ session: 'sudo: su:', text: 'Sorry' }];
       }
     } else {

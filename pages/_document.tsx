@@ -9,7 +9,7 @@ const Document = () => {
         <meta name="description" content="WEB FE 홍준혁 포트폴리오 입니다." />
         <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="transparent" />
         {/* opengraph */}
         <meta property="og:site_name" content="프론트엔드 개발자 홍준혁 포트폴리오" />
         <meta property="og:title" content="WEB FE 홍준혁 포트폴리오" />

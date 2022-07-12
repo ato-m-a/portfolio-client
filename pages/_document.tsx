@@ -33,8 +33,6 @@ const Document = () => {
         <link rel="preload" href="/images/icon_terminal_cute.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
         <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image" crossOrigin="anonymous" />
         <link rel="preload" href="/images/background-light.jpeg" type="image/jpeg" as="image" crossOrigin="anonymous" />
-        {/* <link rel="preload" href="/images/mac_bg_dark.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/images/mac_bg_light.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" /> */}
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />

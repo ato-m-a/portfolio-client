@@ -7,7 +7,7 @@ const Document = () => {
         <meta charSet="utf-8" />
         {/* for SEO */}
         <meta name="description" content="WEB FE 홍준혁 포트폴리오 입니다." />
-        <meta name="keywords" content="프론트엔드, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
+        <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />
         <meta name="theme-color" content="#fff" />
         {/* opengraph */}
@@ -29,10 +29,10 @@ const Document = () => {
         {/* manifest */}
         <link rel="manifest" href="/manifest.json" />
         {/* preload */}
-        <link rel="preload" href="/images/icon_system.svg" type="image/svg+xml" as="image" />
-        <link rel="preload" href="/images/icon_terminal_cute.svg" type="image/svg+xml" as="image" />
-        <link rel="preload" href="/images/mac_bg_dark.svg" type="image/svg+xml" as="image" />
-        <link rel="preload" href="/images/mac_bg_light.svg" type="image/svg+xml" as="image" />
+        <link rel="preload" href="/images/icon_system.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/icon_terminal_cute.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/mac_bg_dark.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/mac_bg_light.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />

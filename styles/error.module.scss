@@ -2,6 +2,27 @@
 @media screen and (max-width: 778px) {
   .error {
     flex-direction: column !important;
+    justify-content: center !important;
+
+    .error__statusCode {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    .error__body {
+      height: auto !important;
+      flex: none !important;
+
+      .error__message {
+        justify-content: flex-start !important;
+        align-items: center !important;
+      }
+
+      .error__btnzone {
+        width: auto !important;
+        justify-content: center !important;
+      }
+    }
   }
 }
 
@@ -101,12 +122,15 @@
           border-radius: 4px;
           border: none;
           height: 2.5rem;
-          margin-right: 30px;
           transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 
           svg {
             margin-right: 5px;
           }
+        }
+
+        button:first-child {
+          margin-right: 15px;
         }
       }
     }

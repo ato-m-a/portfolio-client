@@ -1,3 +1,4 @@
+// prefers color scheme
 @media (prefers-color-scheme: dark) {
   .header {
     background-color: #252525;
@@ -19,8 +20,39 @@
   }
 }
 
+// mobile media query
+@media screen and (max-width: 778px) {
+  .header {
+    padding: 0px 5px !important;
+  }
+}
+
 .header {
+  padding: 0px 15%;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   height: 60px;
+
+  .header__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .header__left_home {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .header__left_text {
+        margin-left: 5px;
+        font-family: 'DejaVu Sans Mono';
+        font-weight: normal;
+        font-size: 26px;
+      }
+    }
+  }
 }

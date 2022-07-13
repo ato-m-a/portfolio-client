@@ -5,6 +5,7 @@ const Document = () => {
     <Html lang="ko">
       <Head>
         <meta charSet="utf-8" />
+        <meta name="apple-mobile-web-app-title" content="홍준혁" />
         {/* for SEO */}
         <meta name="description" content="초보 웹 개발자 홍준혁입니다." />
         <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 웹 개발, 개발, 웹 개발자, 웹 포트폴리오, 웹 개발 포트폴리오, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
@@ -36,7 +37,6 @@ const Document = () => {
         <meta name="apple-touch-fullscreen" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="홍준혁" />
         <link rel="apple-touch-icon" href="/splash_screens/icon.png" />
         <link rel="apple-touch-startup-image" media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/splash_screens/12.9__iPad_Pro_landscape.png" />
         <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/splash_screens/11__iPad_Pro__10.5__iPad_Pro_landscape.png" />

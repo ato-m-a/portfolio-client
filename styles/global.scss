@@ -82,6 +82,18 @@
   font-display: swap;
 }
 
+@media (prefers-color-scheme: dark) {
+  html, body, #__next {
+    background-color: #252525;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html, body, #__next {
+    background-color: #fff;
+  }
+}
+
 // Monaco
 @include font-face('Monaco', '/fonts/Monaco/Monaco.ttf');
 

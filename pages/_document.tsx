@@ -29,9 +29,10 @@ const Document = () => {
         {/* manifest */}
         <link rel="manifest" href="/manifest.json" />
         {/* preload */}
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/memoticon.svg" type="image/svg+xml" as="image" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.woff" type="font/woff" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.woff" type="font/woff" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.woff" type="font/woff" as="font" crossOrigin="anonymous" />
         {/* for ios */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />

@@ -24,7 +24,7 @@ const ErrorPage: NextPage<Props> = ({ message, statusCode }) => {
   return (
     <Fragment>
       <Head>
-        <title>Error: {statusCode} - 홍준혁</title>
+        <title>홍준혁</title>
       </Head>
       <GeneralHeader />
       <main className={styles.error}>

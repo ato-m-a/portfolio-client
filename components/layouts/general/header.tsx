@@ -11,7 +11,7 @@ const GeneralHeader = (): ReactElement => {
       <div className={styles.header__left}>
         <Link href={{ pathname: '/' }}>
           <div className={styles.header__left_home}>
-            <Image src="/images/memoticon.png" alt="bear_logo" width={60} height={60} />
+            <Image src="/images/memoticon.svg" alt="bear_logo" width={60} height={60} />
             <div className={styles.header__left_text}>
               ato-m-a
             </div>

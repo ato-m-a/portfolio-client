@@ -8,12 +8,12 @@ export type AppType = {
 export const AppData: AppType[] = [
   {
     name: '블로그',
-    src: 'memoticon.png',
+    src: 'memoticon.svg',
     path: '/blog'
   },
   {
     name: '깃허브',
-    src: 'icon_github.png',
+    src: 'icon_github.svg',
     path: 'https://github.com/ato-m-a',
     external: true
   },

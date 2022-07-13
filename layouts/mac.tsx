@@ -18,6 +18,7 @@ const MacLayout = ({ children }: AppProps): ReactElement => {
       <Head>
         <title>Mac - 홍준혁</title>
         <link rel="preload" href="/images/icon_terminal_cute.svg" type="image/svg+xml" as="image" />
+        <link rel="preload" href="/images/icon_github.svg" type="image/svg+xml" as="image" />
         <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image" />
         <link rel="preload" href="/images/background-light.jpeg" type="image/jpeg" as="image" />
       </Head>

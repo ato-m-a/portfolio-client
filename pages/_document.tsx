@@ -31,13 +31,13 @@ const Document = () => {
         {/* manifest */}
         <link rel="manifest" href="/manifest.json" />
         {/* preload */}
-        <link rel="preload" href="/images/icon_system.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/images/icon_terminal_cute.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/images/background-light.jpeg" type="image/jpeg" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/icon_system.svg" type="image/svg+xml" as="image" />
+        <link rel="preload" href="/images/icon_terminal_cute.svg" type="image/svg+xml" as="image" />
+        <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image"/>
+        <link rel="preload" href="/images/background-light.jpeg" type="image/jpeg" as="image" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" />
+        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" />
         {/* for ios */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />

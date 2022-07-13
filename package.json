@@ -7,7 +7,7 @@
     "prebuild": "rimraf .next",
     "postbuild": "next-sitemap",
     "dev": "next dev",
-    "build": "npm run prebuild && npm run dep && next build && npm run postbuild",
+    "build": "npm run dep && next build && npm run postbuild",
     "start": "next start",
     "lint": "next lint"
   },

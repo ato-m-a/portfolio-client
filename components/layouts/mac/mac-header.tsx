@@ -12,7 +12,7 @@ import styles from '../../../styles/layout.module.scss';
 /* icons */
 import { AiFillHome } from 'react-icons/ai';
 
-const GeneralHeader = (): ReactElement => {
+const MacHeader = (): ReactElement => {
   const router = useRouter();
 
   const pathname = router.pathname !== '/' ? AppData.filter(app => {
@@ -36,4 +36,4 @@ const GeneralHeader = (): ReactElement => {
   )
 };
 
-export default GeneralHeader;
+export default MacHeader;

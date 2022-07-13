@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 @media screen and (max-width: 768px) {
   @media (prefers-color-scheme: dark) {
     .header {
@@ -76,7 +78,7 @@
   user-select: none;
   // background
   // font
-  font-family: 'Apple SD Gothic Neo', sans-serif;
+  font-family: $general_fonts;
   font-weight: light;
   font-size: 13px;
   // transition
@@ -113,7 +115,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    font-family: 'Apple SD Gothic Neo', sans-serif;
+    font-family: $general_fonts;
     font-weight: normal;
 
     .header__btn {

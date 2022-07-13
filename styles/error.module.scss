@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 // media query
 @media screen and (max-width: 778px) {
   .error {
@@ -88,7 +90,7 @@
       justify-content: center;
 
       p {
-        font-family: 'Apple SD Gothic Neo', sans-serif;
+        font-family: $general_fonts;
         font-size: 20px;
       }
 
@@ -111,7 +113,7 @@
         }
 
         button {
-          font-family: 'Apple SD Gothic Neo', sans-serif;
+          font-family: $general_fonts;
           font-weight: bold;
           cursor: pointer;
           display: inline-flex;

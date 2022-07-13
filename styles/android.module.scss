@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .input__wrapper {
   position: fixed;
   display: flex;
@@ -38,7 +40,7 @@
     background: transparent;
     color: #fff;
     font-size: 20px;
-    font-family: 'Apple SD Gothic Neo', sans-serif;
+    font-family: $general_fonts;
     border: none;
   }
 }

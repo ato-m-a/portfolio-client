@@ -30,10 +30,6 @@ const Document = () => {
         <link rel="manifest" href="/manifest.json" />
         {/* preload */}
         <link rel="preload" href="/images/memoticon.svg" type="image/svg+xml" as="image" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.woff" type="font/woff" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.woff" type="font/woff" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.woff" type="font/woff" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/FiraCode/FiraCode-Regular.woff" type="font/woff" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/DejavuSansMono/DejaVuSansMono-Bold.woff" type="font/woff" as="font" crossOrigin="anonymous" />
         {/* for ios */}
         <meta name="mobile-web-app-capable" content="yes" />

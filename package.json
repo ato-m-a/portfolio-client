@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dep": "license-report --only=prod --output=html > ./public/license.html",
-    "prebuild": "rimraf .next",
+    "prebuild": "rimraf .next && next-sitemap",
     "dev": "next dev",
     "build": "npm run prebuild && npm run dep && next build",
     "start": "next start",
@@ -35,6 +35,7 @@
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "license-report": "^5.0.2",
+    "next-sitemap": "^3.1.10",
     "rimraf": "^3.0.2",
     "typescript": "4.7.4"
   }

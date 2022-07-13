@@ -1,6 +1,6 @@
 {
-  "name": "WEB FE 홍준혁 포트폴리오",
-  "short_name": "홍준혁 포트폴리오",
+  "name": "홍준혁",
+  "short_name": "홍준혁",
   "theme_color": "#252525",
   "background_color": "#252525",
   "display": "standalone",
@@ -9,7 +9,7 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "icons/icon-512x512.png",
+      "src": "icons/memoticon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

@@ -6,26 +6,24 @@ const Document = () => {
       <Head>
         <meta charSet="utf-8" />
         {/* for SEO */}
-        <meta name="description" content="WEB FE 홍준혁 포트폴리오 입니다." />
+        <meta name="description" content="프론트엔드 개발자 홍준혁입니다." />
         <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />
         <meta name="color-scheme" content="dark light" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
         {/* opengraph */}
-        <meta property="og:site_name" content="프론트엔드 개발자 홍준혁 포트폴리오" />
-        <meta property="og:title" content="WEB FE 홍준혁 포트폴리오" />
-        <meta property="og:description" content="WEB FE 홍준혁 포트폴리오 입니다." />
+        <meta property="og:site_name" content="홍준혁" />
+        <meta property="og:title" content="홍준혁" />
+        <meta property="og:description" content="프론트엔드 개발자 홍준혁입니다." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://홍준혁.com" />
         <meta property="og:image" content="/images/original_image.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="ko_KR" />
         {/* twitter */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="WEB FE 홍준혁 포트폴리오" />
-        <meta name="twitter:description" content="WEB FE 홍준혁 포트폴리오 입니다." />
+        <meta name="twitter:title" content="홍준혁" />
+        <meta name="twitter:description" content="프론트엔드 개발자 홍준혁입니다." />
         <meta name="twitter:url" content="https://홍준혁.com" />
         <meta name="twitter:image" content="/images/original_image.png" />
         {/* manifest */}
@@ -39,8 +37,8 @@ const Document = () => {
         <meta name="apple-touch-fullscreen" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="WEB FE 홍준혁 포트폴리오" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <meta name="apple-mobile-web-app-title" content="홍준혁" />
+        <link rel="apple-touch-icon" href="/splash_screens/icon.png" />
         <link rel="apple-touch-startup-image" media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/splash_screens/12.9__iPad_Pro_landscape.png" />
         <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/splash_screens/11__iPad_Pro__10.5__iPad_Pro_landscape.png" />
         <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/splash_screens/10.5__iPad_Air_landscape.png" />
@@ -68,10 +66,11 @@ const Document = () => {
         <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png" />
         <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png" />
         {/* for android */}
-        <link rel="mask-icon" href="/icons/icon-512x512.png" color="#252525" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="384x384" href="/icons/icon-384x384.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
+        <link rel="mask-icon" href="/splash_screens/icon.png" color="#252525" />
+        <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
       </Head>

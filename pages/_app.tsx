@@ -26,14 +26,6 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
       <Head>
         <title>WEB FE 홍준혁 포트폴리오</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        {/* preload */}
-        <link rel="preload" href="/images/icon_system.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/images/icon_terminal_cute.svg" type="image/svg+xml" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/images/background.jpeg" type="image/jpeg" as="image" crossOrigin="anonymous"/>
-        <link rel="preload" href="/images/background-light.jpeg" type="image/jpeg" as="image" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
       </Head>
       <Layout>
         {getLayout(<Component {...pageProps} />)}

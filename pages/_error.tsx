@@ -25,8 +25,8 @@ const ErrorPage: NextPage<Props> = ({ message, statusCode }) => {
     <Fragment>
       <Head>
         <title>홍준혁</title>
-        <link rel="preload" href="/fonts/FiraCode/FiraCode-Regular.woff" type="font/woff" as="font" />
-        <link rel="preload" href="/fonts/DejavuSansMono/DejaVuSansMono-Bold.woff" type="font/woff" as="font" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-Regular.woff" type="font/woff" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/DejavuSansMono/DejaVuSansMono-Bold.woff" type="font/woff" as="font" crossOrigin="anonymous" />
       </Head>
       <GeneralHeader />
       <main className={styles.error}>

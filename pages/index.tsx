@@ -2,10 +2,7 @@ import type { Page } from '../types/page';
 import { Fragment } from 'react';
 
 /* layout */
-import GeneralLayout from '../layouts/general';
-
-/* styles */
-import styles from '../styles/home.module.scss';
+import MacLayout from '../layouts/mac';
 
 const Home: Page = () => {
   return (
@@ -15,6 +12,6 @@ const Home: Page = () => {
   )
 };
 
-Home.layout = GeneralLayout;
+Home.layout = MacLayout;
 
 export default Home;

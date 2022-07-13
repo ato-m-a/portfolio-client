@@ -2,7 +2,7 @@ import { Page } from '../types/page';
 import { Fragment } from 'react';
 
 /* layout */
-import GeneralLayout from '../layouts/general';
+import MacLayout from '../layouts/mac';
 
 const SystemConfig: Page = () => {
   return (
@@ -12,6 +12,6 @@ const SystemConfig: Page = () => {
   )
 };
 
-SystemConfig.layout = GeneralLayout;
+SystemConfig.layout = MacLayout;
 
 export default SystemConfig;

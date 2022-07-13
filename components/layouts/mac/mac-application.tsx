@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import { useRouter } from 'next/router';
-import { AppType } from '../../modules/appdata';
+import { AppType } from '../../../modules/appdata';
 import Link from 'next/link';
 
 /* styles */
-import styles from '../../styles/application.module.scss';
+import styles from '../../../styles/application.module.scss';
 
 const Application = ({ name, src, path }: AppType): ReactElement => {
   const router = useRouter();

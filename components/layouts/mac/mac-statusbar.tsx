@@ -1,7 +1,7 @@
 import { ReactElement, useState, useEffect } from 'react';
 
 /* styles */
-import styles from '../../styles/layout.module.scss';
+import styles from '../../../styles/layout.module.scss';
 
 const StatusBar = (): ReactElement => {
   const stringFormat = (date: Date): string => {

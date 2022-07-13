@@ -1,11 +1,11 @@
-import { ReactElement, Fragment, useState } from 'react';
-import { AppType, AppData } from '../../modules/appdata';
+import { ReactElement, Fragment } from 'react';
+import { AppData } from '../../../modules/appdata';
 
 /* styles */
-import styles from '../../styles/layout.module.scss';
+import styles from '../../../styles/layout.module.scss';
 
 /* components */
-import Application from './application';
+import Application from './mac-application';
 
 const Docker = (): ReactElement => {
   return (

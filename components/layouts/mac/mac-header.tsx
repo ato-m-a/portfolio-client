@@ -1,13 +1,13 @@
 import { ReactElement } from 'react';
 import { useRouter } from 'next/router';
-import { AppData } from '../../modules/appdata';
+import { AppData } from '../../../modules/appdata';
 import Link from 'next/link';
 
 /* components */
-import StatusBar from './statusbar';
+import StatusBar from './mac-statusbar';
 
 /* styles */
-import styles from '../../styles/layout.module.scss';
+import styles from '../../../styles/layout.module.scss';
 
 /* icons */
 import { AiFillHome } from 'react-icons/ai';

@@ -6,7 +6,7 @@ import Draggable from 'react-draggable';
 import Link from 'next/link';
 
 /* layout */
-import GeneralLayout from '../layouts/general';
+import MacLayout from '../layouts/mac';
 
 /* styles */
 import styles from '../styles/terminal.module.scss';
@@ -128,6 +128,6 @@ const Terminal: Page = () => {
   )
 };
 
-Terminal.layout = GeneralLayout;
+Terminal.layout = MacLayout;
 
 export default Terminal;

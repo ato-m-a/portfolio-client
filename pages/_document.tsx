@@ -33,6 +33,8 @@ const Document = () => {
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoB.woff" type="font/woff" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoL.woff" type="font/woff" as="font" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/SDGothicNEO/AppleSDGothicNeoR.woff" type="font/woff" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/FiraCode/FiraCode-Regular.woff" type="font/woff" as="font" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/DejavuSansMono/DejaVuSansMono-Bold.woff" type="font/woff" as="font" crossOrigin="anonymous" />
         {/* for ios */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />

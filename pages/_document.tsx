@@ -6,8 +6,8 @@ const Document = () => {
       <Head>
         <meta charSet="utf-8" />
         {/* for SEO */}
-        <meta name="description" content="프론트엔드 개발자 홍준혁입니다." />
-        <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
+        <meta name="description" content="초보 웹 개발자 홍준혁입니다." />
+        <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 웹 개발, 개발, 웹 개발자, 웹 포트폴리오, 웹 개발 포트폴리오, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />
         <meta name="color-scheme" content="dark light" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525" />
@@ -15,7 +15,7 @@ const Document = () => {
         {/* opengraph */}
         <meta property="og:site_name" content="홍준혁" />
         <meta property="og:title" content="홍준혁" />
-        <meta property="og:description" content="프론트엔드 개발자 홍준혁입니다." />
+        <meta property="og:description" content="초보 웹 개발자 홍준혁입니다." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://홍준혁.com" />
         <meta property="og:image" content="/images/original_image.png" />
@@ -23,7 +23,7 @@ const Document = () => {
         {/* twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="홍준혁" />
-        <meta name="twitter:description" content="프론트엔드 개발자 홍준혁입니다." />
+        <meta name="twitter:description" content="초보 웹 개발자 홍준혁입니다." />
         <meta name="twitter:url" content="https://홍준혁.com" />
         <meta name="twitter:image" content="/images/original_image.png" />
         {/* manifest */}

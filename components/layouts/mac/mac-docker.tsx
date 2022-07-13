@@ -18,7 +18,7 @@ const Docker = (): ReactElement => {
   return (
     <Fragment>
       <footer className={styles.docker} style={{
-        bottom: isIos ? '15.5px' : '3.5px'
+        bottom: isIos ? '18.5px' : '3.5px'
       }}>
         <nav className={styles.application__container}>
           <ul>

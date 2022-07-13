@@ -6,7 +6,7 @@ import Link from 'next/link';
 /* styles */
 import styles from '../../../styles/application.module.scss';
 
-const Application = ({ name, src, path }: AppType): ReactElement => {
+const Application = ({ name, src, path, external }: AppType): ReactElement => {
   const router = useRouter();
 
   return (

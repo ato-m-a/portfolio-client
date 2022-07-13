@@ -15,7 +15,7 @@ const Docker = (): ReactElement => {
           <ul>
             {
               AppData.map(app => (
-                <Application src={app.src} name={app.name} path={app.path} key={app.name} />
+                <Application src={app.src} name={app.name} path={app.path} key={app.name} external={app.external} />
               ))
             }
           </ul>

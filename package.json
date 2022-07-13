@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dep": "license-report --only=prod --output=html > ./public/license.html",
-    "prebuild": "rimraf .next && next-sitemap --config next-site.config.ts",
+    "prebuild": "rimraf .next && next-sitemap",
     "dev": "next dev",
     "build": "npm run prebuild && npm run dep && next build",
     "start": "next start",

@@ -11,6 +11,7 @@ import useTheme from '../../../hooks/theme/useTheme';
 
 const ToggleButton = (): ReactElement => {
   const [theme, toggleTheme] = useTheme();
+  console.log(theme);
 
   return (
     <button type="button" className={styles.button_small} onClick={

@@ -22,12 +22,18 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
   const getLayout = Component.getLayout ?? (page => page);
   const Layout = Component.layout ?? Fragment;
 
+  let theme: string = pageProps.theme;
+
+  if (pageProps.theme === 'default' && typeof document !== 'undefined') {
+    document.cookie ? theme = cookie.parse(document.cookie).theme : 'default';
+  } 
+
   return (
     <Provider store={store}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
-      <div id="theme_provider" data-theme={pageProps.theme}>
+      <div id="theme_provider" data-theme={theme}>
         <Layout>
           {getLayout(<Component {...pageProps} />)}
         </Layout>

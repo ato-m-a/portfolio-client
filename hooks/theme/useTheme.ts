@@ -11,6 +11,7 @@ const useTheme = () => {
   // cookie
   const cookieTheme = typeof document !== 'undefined' && document.cookie ?
     cookie.parse(document.cookie).theme : 'default';
+    
   // redux local storage
   const localTheme = useAppSelector(selectTheme);
   const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(localTheme.theme);

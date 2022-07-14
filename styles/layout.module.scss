@@ -1,70 +1,12 @@
 @import "./variables.scss";
 
-@media screen and (max-width: 768px) {
-  @media (prefers-color-scheme: dark) {
-    .header {
-      background: linear-gradient(to right, rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143)) !important;
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    .header {
-      background: linear-gradient(to right, rgb(235, 220, 235), rgb(235, 220, 235), rgb(230, 211, 230)) !important;
-    }
-  }
-  
-}
-
-@media screen and (max-height: 500px) {
-  @media (prefers-color-scheme: dark) {
-    .header {
-      background: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143)) !important;
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    .header {
-      background: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221)) !important;
-    }
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .header {
-    background: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
-    color: rgb(34, 26, 32);
-
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-
-    .header__btn:active {
-      background: rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  .docker {
-    background: rgb(143, 89, 248);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .header {
-    background: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
-    color: #fff;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-
-    -webkit-backdrop-filter: blur(50px);
-    backdrop-filter: blur(50px);
-
-    .header__btn:active {
-      background: rgba(255, 255, 255, 0.25);
-    }
-  }
-}
-
 // header
 .header {
-  // init
+  background: var(--mac_header_bg);
+  color: var(--mac_header_font);
+  -webkit-backdrop-filter: var(--mac_header_filter);
+  backdrop-filter: var(--mac_header_filter);
+  text-shadow: var(--mac_header_text_shadow);
   width: 100%;
   height: 25px;
   z-index: 99;
@@ -76,12 +18,9 @@
   padding: 0px 6px;
   cursor: default;
   user-select: none;
-  // background
-  // font
   font-family: $general_fonts;
   font-weight: light;
   font-size: 13px;
-  // transition
   transition: $general_transition;
 
   .header__btn {
@@ -91,6 +30,10 @@
     justify-content: center;
     align-items: center;
     padding: 0px 15px;
+  }
+
+  .header__btn:active {
+    background: var(--mac_header_button_active_bg);
   }
 
   .header__router {
@@ -123,8 +66,6 @@
     }
   }
 }
-
-//0 22px 70px 4px rgba(0, 0, 0, 0.56); 
 
 // footer
 .docker__route {

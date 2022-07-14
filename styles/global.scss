@@ -123,6 +123,18 @@ html, body, #__next {
   --blog_button_small_font: rgb(34, 37, 41);
   --blog_foldable_header_bg: #fff;
   --blog_foldable_header_box_shadow: rgba(0, 0, 0, 0.08) 0px 0px 8px;
+
+  --mac_application_status_color: rgb(0, 0, 100);
+  --mac_home_bg_image: url('/images/background-light.jpeg');
+  --mac_header_bg: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
+  --mac_header_font: rgb(34, 26, 32);
+  --mac_header_filter: blur(20px);
+  --mac_header_text_shadow: none;
+  --mac_header_button_active_bg: rgba(0, 0, 0, 0.1);
+  --mac_docker_bg: rgb(143, 89, 248);
+  --mac_terminal_border: 1px solid rgba(68, 67, 70, 0.3);
+  --mac_terminal_controlbar_bg: rgba(238, 231, 240, 0.9);
+  --mac_terminal_controlbar_font: rgb(70, 69, 72);
 }
 
 #theme_provider[data-theme='dark'] {
@@ -135,6 +147,18 @@ html, body, #__next {
   --blog_button_small_font: #fff;
   --blog_foldable_header_bg: #292929;
   --blog_foldable_header_box_shadow: none;
+
+  --mac_application_status_color: rgb(160, 142, 200);
+  --mac_home_bg_image: url('/images/background.jpeg');
+  --mac_header_bg: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
+  --mac_header_font: #fff;
+  --mac_header_filter: blur(50px);
+  --mac_header_text_shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  --mac_header_button_active_bg: rgba(255, 255, 255, 0.25);
+  --mac_docker_bg: none;
+  --mac_terminal_border: 1.2px solid rgba(68, 67, 70, 1);
+  --mac_terminal_controlbar_bg: rgba(51, 47, 56, 0.9);
+  --mac_terminal_controlbar_font: rgb(183, 173, 200);
 
   html, body, #__next {
     background-color: #fff;
@@ -154,6 +178,18 @@ html, body, #__next {
     --blog_button_small_font: #fff;
     --blog_foldable_header_bg: #292929;
     --blog_foldable_header_box_shadow: none;
+
+    --mac_application_status_color: rgb(160, 142, 200);
+    --mac_home_bg_image: url('/images/background.jpeg');
+    --mac_header_bg: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
+    --mac_header_font: #fff;
+    --mac_header_filter: blur(50px);
+    --mac_header_text_shadow: none;
+    --mac_header_button_active_bg: rgba(255, 255, 255, 0.25);
+    --mac_docker_bg: none;
+    --mac_terminal_border: 1.2px solid rgba(68, 67, 70, 1);
+    --mac_terminal_controlbar_bg: rgba(51, 47, 56, 0.9);
+    --mac_terminal_controlbar_font: rgb(183, 173, 200);
   }
 
   #theme_provider[data-theme='light'] {
@@ -167,8 +203,64 @@ html, body, #__next {
     --blog_button_small_font: rgb(34, 37, 41);
     --blog_foldable_header_bg: #fff;
     --blog_foldable_header_box_shadow: rgba(0, 0, 0, 0.08) 0px 0px 8px;
+
+    --mac_application_status_color: rgb(0, 0, 100);
+    --mac_home_bg_image: url('/images/background-light.jpeg');
+    --mac_header_bg: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
+    --mac_header_font: rgb(34, 26, 32);
+    --mac_header_filter: blur(20px);
+    --mac_header_text_shadow: none;
+    --mac_header_button_active_bg: rgba(0, 0, 0, 0.1);
+    --mac_docker_bg: rgb(143, 89, 248);
+    --mac_terminal_border: 1px solid rgba(68, 67, 70, 0.3);
+    --mac_terminal_controlbar_bg: rgba(238, 231, 240, 0.9);
+    --mac_terminal_controlbar_font: rgb(70, 69, 72);
   }
+
   html, body, #__next {
     background-color: #252525;
+  }
+}
+
+// 768 이하
+@media screen and (max-width: 768px) {
+  // 기본
+  #theme_provider {
+    --mac_header_bg: linear-gradient(to right, rgb(235, 220, 235), rgb(235, 220, 235), rgb(230, 211, 230));
+  }
+  #theme_provider[data-theme='dark'] {
+    --mac_header_bg: linear-gradient(to right, rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
+  }
+
+  // 다크
+  @media (prefers-color-scheme: dark) {
+    #theme_provider {
+      --mac_header_bg: linear-gradient(to right, rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
+    }
+
+    #theme_provider[data-theme='light'] {
+      --mac_header_bg: linear-gradient(to right, rgb(235, 220, 235), rgb(235, 220, 235), rgb(230, 211, 230));
+    }
+  }
+}
+
+// 높이 500 이하
+@media screen and (max-height: 500px) {
+  // 기본
+  #theme_provider {
+    --mac_header_bg: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
+  }
+  #theme_provider[data-theme='dark'] {
+    --mac_header_bg: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
+  }
+
+  // 다크
+  @media (prefers-color-scheme: dark) {
+    #theme_provider {
+      --mac_header_bg: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
+    }
+    #theme_provider[data-theme='light'] {
+      --mac_header_bg: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
+    }
   }
 }

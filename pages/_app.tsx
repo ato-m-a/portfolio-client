@@ -29,7 +29,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
   }
 
   const os_theme = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-color-theme: dark)').matches ? 'dark' : 'light'
+    ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     : 'not_ready';
 
   const themeColor = theme === 'default'

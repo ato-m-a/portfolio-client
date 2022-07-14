@@ -1,5 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react';
-import store from '../../../store';
+import { ReactElement } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -9,41 +8,11 @@ import styles from '../../../styles/general-layout.module.scss';
 /* icons */
 import { BsSearch, BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
-/* redux */
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { selectTheme, enableLight, enableDark } from '../../../store/reducers/theme';
+/* theme hook */
+import useTheme from '../../../hooks/theme/useTheme';
 
 const GeneralHeader = (): ReactElement => {
-  const dispatch = useAppDispatch();
-  const storeTheme = useAppSelector(selectTheme);
-  const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(null);
-
-  useEffect(() => {
-    setTheme(storeTheme.theme);
-  }, [storeTheme]);
-
-  const toggleTheme = (value: 'dark' | 'light') => {
-    // light => dark
-    if (value === 'dark') {
-      dispatch(enableDark());
-    }
-    // dark => light
-    else {
-      dispatch(enableLight());
-    }
-    document.getElementById('theme_provider').setAttribute('data-theme', value);
-    document.cookie = `theme=${value};`;
-    setTheme(value);
-  }
-
-  useEffect(() => {
-    if (theme === 'default') {
-      const localTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark' : 'light';
-      toggleTheme(localTheme);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme]);
+  const [theme, toggleTheme] = useTheme();
 
   return (
     <header className={styles.header}>

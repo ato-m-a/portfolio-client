@@ -26,11 +26,20 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
 
   if (pageProps.theme === 'default' && typeof document !== 'undefined') {
     document.cookie ? theme = cookie.parse(document.cookie).theme : 'default';
-  } 
+  }
+
+  const os_theme = typeof window !== 'undefined'
+    ? window.matchMedia('(prefers-color-theme: dark)').matches ? 'dark' : 'light'
+    : 'not_ready';
+
+  const themeColor = theme === 'default'
+    ? os_theme && os_theme === 'dark' ? '#252525' : os_theme === 'light' ? '#fff' : '#252525'
+    : theme === 'dark' ? '#252525' : '#fff';
 
   return (
     <Provider store={store}>
       <Head>
+        <meta name="theme-color" content={themeColor} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
       <div id="theme_provider" data-theme={theme}>

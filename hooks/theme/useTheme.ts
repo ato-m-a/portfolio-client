@@ -25,6 +25,10 @@ const useTheme = () => {
     else {
       dispatch(enableLight());
     }
+
+    const themeColor = value === 'dark' ? '#252525' : '#fff';
+
+    document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
     document.getElementById('theme_provider').setAttribute('data-theme', value);
     document.cookie = `theme=${value}; path=/`;
     setTheme(value);

@@ -36,6 +36,15 @@ const GeneralHeader = (): ReactElement => {
     setTheme(value);
   }
 
+  useEffect(() => {
+    if (theme === 'default') {
+      const localTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark' : 'light';
+      toggleTheme(localTheme);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme]);
+
   return (
     <header className={styles.header}>
       {/* 왼쪽 메인 버튼 */}
@@ -53,7 +62,7 @@ const GeneralHeader = (): ReactElement => {
       <div className={styles.header__right}>
         {
           // theme toggle button
-          theme ?
+          theme && theme !== 'default' &&
           theme === 'dark'
           ?
           <button type="button" className={styles.button_small} onClick={() => toggleTheme('light')}>
@@ -63,7 +72,6 @@ const GeneralHeader = (): ReactElement => {
           <button type="button" className={styles.button_small} onClick={() => toggleTheme('dark')}>
             <BsFillSunFill />
           </button>
-          :<></>
         }
         <button type="button" className={styles.button_small}>
           <BsSearch />

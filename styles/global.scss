@@ -113,6 +113,8 @@ html, body, #__next {
 
 // global dynamic variables
 #theme_provider {
+  --global_bg: #fff;
+
   --blog_bg: #fff;
   --blog_font: #252525;
   --blog_button_wide_bg: rgb(34, 37, 41);
@@ -138,6 +140,8 @@ html, body, #__next {
 }
 
 #theme_provider[data-theme='dark'] {
+  --global_bg: #252525;
+  
   --blog_bg: #252525;
   --blog_font: #fff;
   --blog_button_wide_bg: rgb(75, 75, 75);
@@ -159,15 +163,13 @@ html, body, #__next {
   --mac_terminal_border: 1.2px solid rgba(68, 67, 70, 1);
   --mac_terminal_controlbar_bg: rgba(51, 47, 56, 0.9);
   --mac_terminal_controlbar_font: rgb(183, 173, 200);
-
-  html, body, #__next {
-    background-color: #fff;
-  }
 }
 
 // 다크모드
 @media (prefers-color-scheme: dark) {
   #theme_provider {
+    --global_bg: #252525;
+
     --blog_bg: #252525;
     --blog_font: #fff;
     --blog_button_wide_bg: rgb(75, 75, 75);
@@ -193,6 +195,8 @@ html, body, #__next {
   }
 
   #theme_provider[data-theme='light'] {
+    --global_bg: #fff;
+
     --blog_bg: #fff;
     --blog_font: #252525;
     --blog_button_wide_bg: rgb(34, 37, 41);
@@ -218,7 +222,7 @@ html, body, #__next {
   }
 
   html, body, #__next {
-    background-color: #252525;
+    background-color: var(--global_bg);
   }
 }
 

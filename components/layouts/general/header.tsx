@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -8,11 +8,14 @@ import styles from '../../../styles/general-layout.module.scss';
 /* icons */
 import { BsSearch, BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
-/* theme hook */
-import useTheme from '../../../hooks/theme/useTheme';
+/* component */
+import ToggleButton from './toggleButton';
 
 const GeneralHeader = (): ReactElement => {
-  const [theme, toggleTheme] = useTheme();
+  const [mounted, setMounted] = useState<boolean>(false);
+  useEffect(() => {
+    setMounted(true);
+  }, [])
 
   return (
     <header className={styles.header}>
@@ -29,19 +32,7 @@ const GeneralHeader = (): ReactElement => {
       </div>
       {/* 오른쪽 홈 버튼 */}
       <div className={styles.header__right}>
-        {
-          // theme toggle button
-          theme && theme !== 'default' &&
-          theme === 'dark'
-          ?
-          <button type="button" className={styles.button_small} onClick={() => toggleTheme('light')}>
-            <BsFillMoonFill />
-          </button>
-          : 
-          <button type="button" className={styles.button_small} onClick={() => toggleTheme('dark')}>
-            <BsFillSunFill />
-          </button>
-        }
+        {mounted && <ToggleButton />}
         <button type="button" className={styles.button_small}>
           <BsSearch />
         </button>

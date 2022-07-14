@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 /* redux */
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -7,14 +7,10 @@ import { selectTheme, enableLight, enableDark } from '../../store/reducers/theme
 const useTheme = () => {
   const dispatch = useAppDispatch();
 
-  const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(null);
   const localTheme = useAppSelector(selectTheme);
+  const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(localTheme.theme);
 
-  useEffect(() => {
-    setTheme(localTheme.theme);
-  }, [localTheme]);
-
-  const toggleTheme = (value: 'dark' | 'light') => {
+  const toggleTheme = useCallback((value: 'dark' | 'light') => {
     // light => dark
     if (value === 'dark') {
       dispatch(enableDark());
@@ -26,7 +22,7 @@ const useTheme = () => {
     document.getElementById('theme_provider').setAttribute('data-theme', value);
     document.cookie = `theme=${value};`;
     setTheme(value);
-  }
+  }, [dispatch]);
 
   useEffect(() => {
     if (theme === 'default') {

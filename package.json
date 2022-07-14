@@ -14,8 +14,10 @@
   "dependencies": {
     "@reactivex/rxjs": "^6.6.7",
     "@reduxjs/toolkit": "^1.8.3",
+    "@types/cookie": "^0.5.1",
     "@types/react-redux": "^7.1.24",
     "axios": "^0.27.2",
+    "cookie": "^0.5.0",
     "next": "12.2.0",
     "next-pwa": "^5.5.4",
     "node-sass": "^7.0.1",
@@ -30,6 +32,7 @@
     "rxjs": "^7.5.5"
   },
   "devDependencies": {
+    "@types/cookies": "^0.7.7",
     "@types/node": "18.0.1",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",

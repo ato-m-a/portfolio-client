@@ -82,18 +82,6 @@
   font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  html, body, #__next {
-    background-color: #252525;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  html, body, #__next {
-    background-color: #fff;
-  }
-}
-
 // Monaco
 @include font-face('Monaco', '/fonts/Monaco/Monaco.woff', 'woff');
 
@@ -106,7 +94,7 @@
   backface-visibility: hidden;
 }
 
-html, body {
+html, body, #__next {
   width: 100%;
   height: 100%;
 
@@ -114,11 +102,73 @@ html, body {
     list-style: none;
   }
 
-  #__next {
+  #theme_provider {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+// global dynamic variables
+#theme_provider {
+  --blog_bg: #fff;
+  --blog_font: #252525;
+  --blog_button_wide_bg: rgb(34, 37, 41);
+  --blog_button_wide_bg_active: rgb(48, 49, 52);
+  --blog_button_wide_font: #fff;
+  --blog_button_small_bg: none;
+  --blog_button_small_bg_active: rgb(242, 242, 242);
+  --blog_button_small_font: rgb(34, 37, 41);
+  --blog_foldable_header_bg: #fff;
+  --blog_foldable_header_box_shadow: rgba(0, 0, 0, 0.08) 0px 0px 8px;
+}
+
+#theme_provider[data-theme='dark'] {
+  --blog_bg: #252525;
+  --blog_font: #fff;
+  --blog_button_wide_bg: rgb(75, 75, 75);
+  --blog_button_wide_font: #fff;
+  --blog_button_small_bg: none;
+  --blog_button_small_bg_active: rgb(55, 55, 55);
+  --blog_button_small_font: #fff;
+  --blog_foldable_header_bg: #292929;
+  --blog_foldable_header_box_shadow: none;
+
+  html, body, #__next {
+    background-color: #fff;
+  }
+}
+
+// 다크모드
+@media (prefers-color-scheme: dark) {
+  #theme_provider {
+    --blog_bg: #252525;
+    --blog_font: #fff;
+    --blog_button_wide_bg: rgb(75, 75, 75);
+    --blog_button_wide_bg_active: rgb(90, 90, 90);
+    --blog_button_wide_font: #fff;
+    --blog_button_small_bg: none;
+    --blog_button_small_bg_active: rgb(55, 55, 55);
+    --blog_button_small_font: #fff;
+    --blog_foldable_header_bg: #292929;
+    --blog_foldable_header_box_shadow: none;
+  }
+
+  #theme_provider[data-theme='light'] {
+    --blog_bg: #fff;
+    --blog_font: #252525;
+    --blog_button_wide_bg: rgb(34, 37, 41);
+    --blog_button_wide_bg_active: rgb(48, 49, 52);
+    --blog_button_wide_font: #fff;
+    --blog_button_small_bg: none;
+    --blog_button_small_bg_active: rgb(242, 242, 242);
+    --blog_button_small_font: rgb(34, 37, 41);
+    --blog_foldable_header_bg: #fff;
+    --blog_foldable_header_box_shadow: rgba(0, 0, 0, 0.08) 0px 0px 8px;
+  }
+  html, body, #__next {
+    background-color: #252525;
   }
 }

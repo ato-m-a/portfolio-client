@@ -49,8 +49,8 @@ const ErrorPage: NextPage<Props> = ({ message, statusCode }) => {
                   여기엔 아무것도 없네요 🤨
                 </p>
                 <div className={styles.error__btnzone}>
-                  <Link href={{ pathname: '/' }} replace>
-                    <button type="button">홈으로</button>
+                  <Link href={{ pathname: '/blog' }} replace>
+                    <button type="button">블로그홈</button>
                   </Link>
                   <button type="button" onClick={() => router.back()}>뒤로가기</button>
                 </div>

@@ -1,24 +1,4 @@
-// prefers color scheme
-@media (prefers-color-scheme: dark) {
-  .header {
-    background-color: #252525;
-  }
-
-  .header__foldable {
-    background-color: #292929;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .header {
-    background-color: #fff;
-  }
-
-  .header__foldable {
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 8px;
-  }
-}
+@import './variables.scss';
 
 // mobile media query
 @media screen and (max-width: 778px) {
@@ -27,7 +7,15 @@
   }
 }
 
+// 접히는 헤더
+.header__foldable {
+  background-color: var(--blog_foldable_header_bg);
+  box-shadow: var(--blog_foldable_header_box_shadow);
+}
+
+// 헤더
 .header {
+  background-color: var(--blog_bg);
   padding: 0px 15%;
   display: flex;
   flex-direction: row;
@@ -49,10 +37,65 @@
 
       .header__left_text {
         margin-left: 5px;
+        color: var(--blog_font);
         font-family: 'DejaVu Sans Mono';
         font-weight: normal;
         font-size: 26px;
       }
+    }
+  }
+
+  .header__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 8px;
+
+    button {
+      cursor: pointer;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      transition: $general_transition;
+    }
+
+    .button_wide {
+      background: var(--blog_button_wide_bg);
+      color: var(--blog_button_wide_font);
+      padding: 0 1rem;
+      height: 2rem;
+      border-radius: 1rem;
+      font-weight: bold;
+      font-family: $general_fonts;
+    }
+
+    .button_wide:hover,
+    .button_wide:active {
+      background: var(--blog_button_wide_bg_active);
+    }
+
+    .button_small {
+      background-color: var(--blog_button_small_bg);
+      color: var(--blog_button_small_font);
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      .positioner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .button_small:hover,
+    .button_small:active {
+      background: var(--blog_button_small_bg_active);
     }
   }
 }

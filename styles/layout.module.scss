@@ -82,7 +82,7 @@
   font-weight: light;
   font-size: 13px;
   // transition
-  transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  transition: $general_transition;
 
   .header__btn {
     border-radius: 5px;

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import Head from 'next/head';
 import store from '../store/index';
 import axios from 'axios';
+import * as cookie from 'cookie';
 
 /* global style */
 import '../styles/global.scss';
@@ -26,11 +27,25 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
-      <Layout>
-        {getLayout(<Component {...pageProps} />)}
-      </Layout>
+      <div id="theme_provider" data-theme={pageProps.theme}>
+        <Layout>
+          {getLayout(<Component {...pageProps} />)}
+        </Layout>
+      </div>
     </Provider>
   )
+};
+
+MyApp.getInitialProps = async ({ Component, ctx }: AppContext) => {
+  let pageProps = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  };
+
+  const Cookie = ctx.req?.headers.cookie;
+  const theme = Cookie ? cookie.parse(Cookie).theme : 'default';
+
+  return { pageProps: { ...pageProps, theme } }
 }
 
 export default MyApp;

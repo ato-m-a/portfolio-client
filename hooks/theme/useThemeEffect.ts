@@ -27,7 +27,8 @@ const useThemeEffect = () => {
         localStorage.setItem('theme', storageTheme);
       }
     }
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 };
 
 export default useThemeEffect;

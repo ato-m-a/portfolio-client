@@ -1,10 +1,9 @@
-import { FC, ComponentType } from 'react';
-
-import useThemeEffect from '../../hooks/theme/useThemeEffect';
+import { FC, ComponentType, useState, useEffect } from 'react';
+import useTheme from '../../hooks/theme/useTheme';
 
 const WithTheme = <P extends any>(Component: ComponentType<P & any>): FC<P & any> => {
   const WrappedComponent = (props?: any) => {
-    useThemeEffect();
+    useTheme();
 
     return (
       <Component {...props} />

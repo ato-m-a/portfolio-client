@@ -10,7 +10,7 @@ const useTheme = () => {
   // redux local storage
   const localTheme = useAppSelector(selectTheme);
   const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(localTheme.theme);
-  
+    
   // toggle method
   const toggleTheme = useCallback((value: 'dark' | 'light') => {
     // light => dark
@@ -27,6 +27,7 @@ const useTheme = () => {
     document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
     document.getElementById('theme_provider').setAttribute('data-theme', value);
     document.cookie = `theme=${value}; path=/`;
+    localStorage.setItem('theme', value);
     setTheme(value);
   }, [dispatch]);
 

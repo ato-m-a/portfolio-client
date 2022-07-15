@@ -41,6 +41,7 @@ const useTheme = () => {
   // after theme setted
   useEffect(() => {
     console.log(theme);
+    console.log(cookieTheme);
     // if it's first visit
     if (theme === 'default') {
       toggleTheme(osTheme);

@@ -1,5 +1,6 @@
 import { ReactNode, ReactElement, Fragment } from 'react';
 import Head from 'next/head';
+import useThemeEffect from '../hooks/theme/useThemeEffect';
 
 type AppProps = {
   children: ReactNode;
@@ -13,6 +14,8 @@ import MacDocker from '../components/layouts/mac/mac-docker';
 import styles from '../styles/home.module.scss';
 
 const MacLayout = ({ children }: AppProps): ReactElement => {
+  useThemeEffect();
+
   return (
     <Fragment>
       <Head>

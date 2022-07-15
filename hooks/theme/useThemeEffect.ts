@@ -10,7 +10,7 @@ const useThemeEffect = () => {
     const storageTheme = localStorage.getItem('theme');
     const cookieTheme = document.cookie ? cookie.parse(document.cookie).theme : 'default';
     const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    
+
     // if first visit
     if (!storageTheme) {
       localStorage.setItem('theme', osTheme);
@@ -23,8 +23,8 @@ const useThemeEffect = () => {
 
         document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
         document.getElementById('theme_provider').setAttribute('data-theme', storageTheme);
-        document.cookie = `theme=${themeColor}; path=/`;
-        localStorage.setItem('theme', themeColor);
+        document.cookie = `theme=${storageTheme}; path=/`;
+        localStorage.setItem('theme', storageTheme);
       }
     }
   }, [dispatch]);

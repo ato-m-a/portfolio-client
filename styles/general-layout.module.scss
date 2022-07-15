@@ -85,11 +85,10 @@
       justify-content: center;
       align-items: center;
       
-      .positioner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      .svg_wrapper {
+        svg {
+          display: block;
+        }
       }
     }
 

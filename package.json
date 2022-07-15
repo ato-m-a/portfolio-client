@@ -26,6 +26,7 @@
     "react-draggable": "^4.4.5",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
+    "react-spring": "^9.5.0",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",

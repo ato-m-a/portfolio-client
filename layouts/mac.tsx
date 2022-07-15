@@ -8,6 +8,7 @@ type AppProps = {
 /* components */
 import MacHeader from '../components/layouts/mac/mac-header';
 import MacDocker from '../components/layouts/mac/mac-docker';
+import WithTheme from '../components/hoc/withThemeEffect';
 
 /* styles */
 import styles from '../styles/home.module.scss';
@@ -31,4 +32,4 @@ const MacLayout = ({ children }: AppProps): ReactElement => {
   )
 };
 
-export default MacLayout;
+export default WithTheme(MacLayout);

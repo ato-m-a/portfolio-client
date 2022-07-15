@@ -7,6 +7,7 @@ type AppProps = {
 
 /* components */
 import GeneralHeader from '../components/layouts/general/header';
+import WithTheme from '../components/hoc/withThemeEffect';
 
 const GeneralLayout = ({ children }: AppProps): ReactElement => {
   return (
@@ -20,4 +21,4 @@ const GeneralLayout = ({ children }: AppProps): ReactElement => {
   )
 };
 
-export default GeneralLayout;
+export default WithTheme(GeneralLayout);

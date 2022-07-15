@@ -1,6 +1,5 @@
 import { ReactNode, ReactElement, Fragment } from 'react';
 import Head from 'next/head';
-import useThemeEffect from '../hooks/theme/useThemeEffect';
 
 type AppProps = {
   children: ReactNode;
@@ -10,8 +9,6 @@ type AppProps = {
 import GeneralHeader from '../components/layouts/general/header';
 
 const GeneralLayout = ({ children }: AppProps): ReactElement => {
-  useThemeEffect();
-
   return (
     <Fragment>
       <Head>

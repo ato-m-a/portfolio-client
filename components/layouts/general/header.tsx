@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import styles from '../../../styles/general-layout.module.scss';
 
 /* icons */
-import { BsSearch, BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
+import { BsSearch } from 'react-icons/bs';
 
 /* component */
 import ToggleButton from './toggleButton';

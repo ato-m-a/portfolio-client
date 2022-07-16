@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as cookie from 'cookie';
 
 /* redux */
@@ -15,10 +15,7 @@ const useTheme = () => {
   // redux local storage
   const localTheme = useAppSelector(selectTheme);
   const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(localTheme.theme);
-  const [isReady, setIsReady] = useState<boolean>(false);
-  
-  const osTheme = useMemo(() => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light', []);
-  
+
   // toggle method
   const toggleTheme = useCallback((value: 'dark' | 'light') => {
     // light => dark
@@ -38,31 +35,18 @@ const useTheme = () => {
     setTheme(value);
   }, [dispatch]);
 
-  // after theme setted
+  // at first visit
   useEffect(() => {
-    console.log(theme);
-    // if it's first visit
-    if (theme === 'default') {
-      toggleTheme(osTheme);
-      setTheme(osTheme);
+    if (theme === 'default' || cookieTheme === 'default') {
+      const localTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark' : 'light';
+      toggleTheme(localTheme);
+      setTheme(localTheme);
     }
-
-    // if session out
-    if (cookieTheme === 'default') {
-      // ...and first visit
-      if (theme === 'default') {
-        toggleTheme(osTheme);
-        setTheme(osTheme);
-      // or just session out (storeTheme exists)
-      } else {
-        toggleTheme(theme);
-      }
-    }
-    setIsReady(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
-  return [theme, toggleTheme, isReady] as const;
+  return [theme, toggleTheme] as const;
 };
 
 export default useTheme;

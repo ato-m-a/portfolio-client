@@ -9,28 +9,15 @@ import styles from '../../../styles/general-layout.module.scss';
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
 const ToggleButton = (): ReactElement => {
+  const [theme, setTheme] = useState<string>(null);
   const [mounted, setMounted] = useState<boolean>(false);
   useEffect(() => {
+    const os = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    setTheme(document.cookie ? cookie.parse(document.cookie).theme && cookie.parse(document.cookie).theme : os)
     setMounted(true);
   }, []);
-
-  const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const [theme, setTheme] = useState<string>(
-    document.cookie 
-      ? cookie.parse(document.cookie).theme && cookie.parse(document.cookie).theme
-      : osTheme
-  );
   
   const toggleTheme = () => {
-    // light => dark
-    // if (theme === 'light') {
-    //   dispatch(enableDark());
-    // }
-    // // dark => light
-    // else {
-    //   dispatch(enableLight());
-    // }
-
     const contrastTheme = theme === 'dark' ? 'light' : 'dark';
     const themeColor = theme === 'dark' ? '#fff' : '#252525';
 
@@ -39,7 +26,6 @@ const ToggleButton = (): ReactElement => {
     document.cookie = `theme=${contrastTheme}; path=/`;
     localStorage.setItem('theme', contrastTheme);
     setTheme(contrastTheme);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   };
 
   const isDark = theme === 'dark';

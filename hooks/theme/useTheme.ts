@@ -1,4 +1,5 @@
-import { useState, useCallback, useLayoutEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import * as cookie from 'cookie';
 
 /* redux */
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -6,18 +7,19 @@ import { selectTheme, enableLight, enableDark } from '../../store/reducers/theme
 
 const useTheme = () => {
   const dispatch = useAppDispatch();
+
+  // cookie
+  const cookieTheme = typeof document !== 'undefined' && document.cookie ?
+    cookie.parse(document.cookie).theme : 'default';
     
   // redux local storage
   const localTheme = useAppSelector(selectTheme);
-  const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(
-    localTheme.theme !== 'default' ? localTheme.theme : osTheme
-  );
+  const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(localTheme.theme);
 
   // toggle method
-  const toggleTheme = useCallback(() => {
+  const toggleTheme = useCallback((value: 'dark' | 'light') => {
     // light => dark
-    if (theme === 'light') {
+    if (value === 'dark') {
       dispatch(enableDark());
     }
     // dark => light
@@ -25,13 +27,22 @@ const useTheme = () => {
       dispatch(enableLight());
     }
 
-    const contrastTheme = theme === 'dark' ? 'light' : 'dark';
-    const themeColor = theme === 'dark' ? '#fff' : '#252525';
+    const themeColor = value === 'dark' ? '#252525' : '#fff';
 
     document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
-    document.getElementById('theme_provider').setAttribute('data-theme', contrastTheme);
-    document.cookie = `theme=${contrastTheme}; path=/`;
-    setTheme(contrastTheme);
+    document.getElementById('theme_provider').setAttribute('data-theme', value);
+    document.cookie = `theme=${value}; path=/`;
+    setTheme(value);
+  }, [dispatch]);
+
+  // at first visit
+  useEffect(() => {
+    if (theme === 'default' || cookieTheme === 'default') {
+      const localTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark' : 'light';
+      toggleTheme(localTheme);
+      setTheme(localTheme);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 

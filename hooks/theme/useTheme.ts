@@ -7,7 +7,6 @@ import { selectTheme, enableLight, enableDark } from '../../store/reducers/theme
 
 const useTheme = () => {
   const dispatch = useAppDispatch();
-  const [isReady, setIsReady] = useState<boolean>(false);
 
   // cookie
   const cookieTheme = typeof document !== 'undefined' && document.cookie ?
@@ -44,11 +43,10 @@ const useTheme = () => {
       toggleTheme(localTheme);
       setTheme(localTheme);
     }
-    setIsReady(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
-  return [theme, toggleTheme, isReady] as const;
+  return [theme, toggleTheme] as const;
 };
 
 export default useTheme;

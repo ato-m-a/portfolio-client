@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { animated, useTransition } from 'react-spring';
 import * as cookie from 'cookie';
 
@@ -9,6 +9,11 @@ import styles from '../../../styles/general-layout.module.scss';
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
 const ToggleButton = (): ReactElement => {
+  const [mounted, setMounted] = useState<boolean>(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const [theme, setTheme] = useState<string>(
     document.cookie 
@@ -57,6 +62,8 @@ const ToggleButton = (): ReactElement => {
     },
     reverse: true,
   });
+
+  if (!mounted) return null;
 
   return (
     <button type="button" className={styles.button_small} onClick={toggleTheme}>

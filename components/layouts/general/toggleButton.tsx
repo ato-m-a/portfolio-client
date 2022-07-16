@@ -11,7 +11,11 @@ import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 import useTheme from '../../../hooks/theme/useTheme';
 
 const ToggleButton = (): ReactElement => {
-  const [theme, toggleTheme, isReady] = useTheme();
+  const [theme, toggleTheme] = useTheme();
+  const [isReady, setIsReady] = useState<boolean>(false);
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
 
   const isDark = theme === 'dark';
   const transitions = useTransition(isDark, {

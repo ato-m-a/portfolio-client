@@ -1,6 +1,5 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 import { animated, useTransition } from 'react-spring';
-import * as cookie from 'cookie';
 
 /* styles */
 import styles from '../../../styles/general-layout.module.scss';
@@ -8,34 +7,11 @@ import styles from '../../../styles/general-layout.module.scss';
 /* icons */
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
+/* theme hook */
+import useTheme from '../../../hooks/theme/useTheme';
+
 const ToggleButton = (): ReactElement => {
-  const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const [theme, setTheme] = useState<string>(
-    document.cookie 
-      ? cookie.parse(document.cookie).theme && cookie.parse(document.cookie).theme
-      : osTheme
-  );
-  
-  const toggleTheme = () => {
-    // light => dark
-    // if (theme === 'light') {
-    //   dispatch(enableDark());
-    // }
-    // // dark => light
-    // else {
-    //   dispatch(enableLight());
-    // }
-
-    const contrastTheme = theme === 'dark' ? 'light' : 'dark';
-    const themeColor = theme === 'dark' ? '#fff' : '#252525';
-
-    document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
-    document.getElementById('theme_provider').setAttribute('data-theme', contrastTheme);
-    document.cookie = `theme=${contrastTheme}; path=/`;
-    localStorage.setItem('theme', contrastTheme);
-    setTheme(contrastTheme);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  };
+  const [theme, toggleTheme] = useTheme();
 
   const isDark = theme === 'dark';
   const transitions = useTransition(isDark, {

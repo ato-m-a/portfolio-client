@@ -9,6 +9,7 @@ import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
 /* theme hook */
 import useTheme from '../../../hooks/theme/useTheme';
+import useThemeEffect from '../../../hooks/theme/useThemeEffect';
 
 const ToggleButton = (): ReactElement => {
   const [theme, toggleTheme] = useTheme();

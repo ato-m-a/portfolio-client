@@ -1,33 +1,46 @@
-import { useEffect } from 'react';
-import { useAppDispatch } from '../../store/hooks';
-import { enableDark, enableLight } from '../../store/reducers/theme';
+import { useState, useEffect, useMemo } from 'react';
 import * as cookie from 'cookie';
+import useTheme from './useTheme';
 
 const useThemeEffect = () => {
-  const dispatch = useAppDispatch();
-
+  const [windowReady, setWindowReady] = useState<boolean>(false);
   useEffect(() => {
-    const storageTheme = localStorage.getItem('theme');
-    const cookieTheme = document.cookie ? cookie.parse(document.cookie).theme : 'default';
-    const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    
-    // if first visit
-    if (!storageTheme) {
-      localStorage.setItem('theme', osTheme);
-      if (osTheme === 'dark') dispatch(enableDark());
-      else dispatch(enableLight());
-    } else {
-      // store theme exists but cookie theme not exists(browser session expired)
-      if (cookieTheme === 'default') {
-        const themeColor = storageTheme === 'dark' ? '#252525' : '#fff';
+    setWindowReady(true);
+  }, [])
 
-        document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
-        document.getElementById('theme_provider').setAttribute('data-theme', storageTheme);
-        document.cookie = `theme=${themeColor}; path=/`;
-        localStorage.setItem('theme', themeColor);
+  const [theme, toggleTheme] = useTheme();
+
+  const cookieTheme = useMemo(() => {
+    if (windowReady) {
+      return typeof document !== 'undefined' && document.cookie ?
+      cookie.parse(document.cookie).theme : 'default';
+    } else {
+      return false;
+    }
+  }, [windowReady]);
+  const osTheme = useMemo(() => {
+    if (windowReady) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    } else {
+      return 'light';
+    }
+  }, [windowReady]);
+
+  // after theme setted
+  useEffect(() => {
+    if (cookieTheme) {
+      // if it's first visit
+      if (theme === 'default') {
+        toggleTheme(osTheme);
+      } else {
+        // or if session out
+        if (cookieTheme === 'default') {
+          toggleTheme(theme);
+        }
       }
     }
-  }, [dispatch]);
-};
+    
+  }, [theme, cookieTheme, osTheme, toggleTheme]);
+}
 
 export default useThemeEffect;

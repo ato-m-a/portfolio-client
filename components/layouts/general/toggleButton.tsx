@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect } from 'react';
+import { ReactElement } from 'react';
 import { animated, useTransition } from 'react-spring';
 
 /* styles */
@@ -35,9 +35,7 @@ const ToggleButton = (): ReactElement => {
   });
 
   return (
-    <button type="button" className={styles.button_small} onClick={
-      () => theme === 'dark' ? toggleTheme('light') : toggleTheme('dark')
-    }>
+    <button type="button" className={styles.button_small} onClick={toggleTheme}>
       {
         transitions((style, item) => 
           item ? (

@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
-import * as cookie from 'cookie';
+import { useState, useCallback, useLayoutEffect } from 'react';
 
 /* redux */
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -7,19 +6,18 @@ import { selectTheme, enableLight, enableDark } from '../../store/reducers/theme
 
 const useTheme = () => {
   const dispatch = useAppDispatch();
-
-  // cookie
-  const cookieTheme = typeof document !== 'undefined' && document.cookie ?
-    cookie.parse(document.cookie).theme : 'default';
     
   // redux local storage
   const localTheme = useAppSelector(selectTheme);
-  const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(localTheme.theme);
+  const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const [theme, setTheme] = useState<'dark' | 'light' | 'default'>(
+    localTheme.theme !== 'default' ? localTheme.theme : osTheme
+  );
 
   // toggle method
-  const toggleTheme = useCallback((value: 'dark' | 'light') => {
+  const toggleTheme = useCallback(() => {
     // light => dark
-    if (value === 'dark') {
+    if (theme === 'light') {
       dispatch(enableDark());
     }
     // dark => light
@@ -27,22 +25,13 @@ const useTheme = () => {
       dispatch(enableLight());
     }
 
-    const themeColor = value === 'dark' ? '#252525' : '#fff';
+    const contrastTheme = theme === 'dark' ? 'light' : 'dark';
+    const themeColor = theme === 'dark' ? '#fff' : '#252525';
 
     document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
-    document.getElementById('theme_provider').setAttribute('data-theme', value);
-    document.cookie = `theme=${value}; path=/`;
-    setTheme(value);
-  }, [dispatch]);
-
-  // at first visit
-  useEffect(() => {
-    if (theme === 'default' || cookieTheme === 'default') {
-      const localTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark' : 'light';
-      toggleTheme(localTheme);
-      setTheme(localTheme);
-    }
+    document.getElementById('theme_provider').setAttribute('data-theme', contrastTheme);
+    document.cookie = `theme=${contrastTheme}; path=/`;
+    setTheme(contrastTheme);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 

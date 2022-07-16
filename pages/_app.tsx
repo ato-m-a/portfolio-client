@@ -1,6 +1,6 @@
 import type { AppContext, AppProps, AppInitialProps } from 'next/app';
 import { NextComponentType } from 'next';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Page } from '../types/page';
 import { Provider } from 'react-redux';
 import Head from 'next/head';
@@ -22,20 +22,24 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
   const getLayout = Component.getLayout ?? (page => page);
   const Layout = Component.layout ?? Fragment;
 
-  let theme: string = pageProps.theme;
+  const [theme, setTheme] = useState<string>(pageProps.theme);
+  const [themeColor, setThemeColor] = useState<string>('#252525');
+  useEffect(() => {
+    if (theme === 'default') {
+      const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      setThemeColor(osTheme === 'dark' ? '#252525' : '#fff');
+    }
+    else {
+      setThemeColor(theme === 'dark' ? '#252525' : '#fff');
+    }
+  }, [theme]);
 
-  if (pageProps.theme === 'default' && typeof document !== 'undefined') {
-    document.cookie ? theme = cookie.parse(document.cookie).theme : 'default';
-  }
-
-  const os_theme = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    : 'not_ready';
-
-  const themeColor = theme === 'default'
-    ? os_theme && os_theme === 'dark' ? '#252525' : os_theme === 'light' ? '#fff' : '#252525'
-    : theme === 'dark' ? '#252525' : '#fff';
-
+  useEffect(() => {
+    if (pageProps.theme === 'default' && typeof document !== 'undefined') {
+      document.cookie ? setTheme(cookie.parse(document.cookie).theme) : setTheme('default');
+    }
+  }, [pageProps]);
+  
   return (
     <Provider store={store}>
       <Head>

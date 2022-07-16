@@ -36,7 +36,7 @@ const useTheme = () => {
 
     document.querySelector('meta[name=theme-color]').setAttribute('content', themeColor);
     document.getElementById('theme_provider').setAttribute('data-theme', contrastTheme);
-    document.cookie = `theme=${contrastTheme}; path=/;`;
+    document.cookie = `theme=${contrastTheme}; path=/`;
     localStorage.setItem('theme', contrastTheme);
     setTheme(contrastTheme);
   // eslint-disable-next-line react-hooks/exhaustive-deps

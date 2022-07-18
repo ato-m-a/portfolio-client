@@ -11,6 +11,8 @@ const Document = () => {
         <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 웹 개발, 개발, 웹 개발자, 웹 포트폴리오, 웹 개발 포트폴리오, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />
         <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
         {/* opengraph */}
         <meta property="og:site_name" content="홍준혁" />
         <meta property="og:title" content="홍준혁" />
@@ -70,6 +72,17 @@ const Document = () => {
         <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            const theme = localStorage.getItem('theme');
+            const themeColor = theme === 'dark' ? '#252525' : '#fff';
+
+            if (theme) {
+              document.documentElement.setAttribute('data-theme', theme);
+              document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
+            }
+          `
+        }}></script>
       </Head>
       <body>
         <Main />

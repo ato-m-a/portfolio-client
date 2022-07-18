@@ -112,7 +112,7 @@ html, body, #__next {
     list-style: none;
   }
 
-  #theme_provider {
+  #__next {
     width: 100%;
     height: 100%;
     display: flex;
@@ -122,7 +122,7 @@ html, body, #__next {
 }
 
 // global dynamic variables
-#theme_provider {
+:root {
   --global_bg: #fff;
 
   --blog_bg: #fff;
@@ -149,7 +149,7 @@ html, body, #__next {
   --mac_terminal_controlbar_font: rgb(70, 69, 72);
 }
 
-#theme_provider[data-theme='dark'] {
+[data-theme='dark'] {
   --global_bg: #252525;
   
   --blog_bg: #252525;
@@ -177,7 +177,7 @@ html, body, #__next {
 
 // 다크모드
 @media (prefers-color-scheme: dark) {
-  #theme_provider {
+  :root {
     --global_bg: #252525;
 
     --blog_bg: #252525;
@@ -204,7 +204,7 @@ html, body, #__next {
     --mac_terminal_controlbar_font: rgb(183, 173, 200);
   }
 
-  #theme_provider[data-theme='light'] {
+  [data-theme='light'] {
     --global_bg: #fff;
 
     --blog_bg: #fff;
@@ -235,20 +235,20 @@ html, body, #__next {
 // 768 이하
 @media screen and (max-width: 768px) {
   // 기본
-  #theme_provider {
+  :root {
     --mac_header_bg: linear-gradient(to right, rgb(235, 220, 235), rgb(235, 220, 235), rgb(230, 211, 230));
   }
-  #theme_provider[data-theme='dark'] {
+  [data-theme='dark'] {
     --mac_header_bg: linear-gradient(to right, rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
   }
 
   // 다크
   @media (prefers-color-scheme: dark) {
-    #theme_provider {
+    :root {
       --mac_header_bg: linear-gradient(to right, rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
     }
 
-    #theme_provider[data-theme='light'] {
+    [data-theme='light'] {
       --mac_header_bg: linear-gradient(to right, rgb(235, 220, 235), rgb(235, 220, 235), rgb(230, 211, 230));
     }
   }
@@ -257,19 +257,19 @@ html, body, #__next {
 // 높이 500 이하
 @media screen and (max-height: 500px) {
   // 기본
-  #theme_provider {
+  :root {
     --mac_header_bg: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
   }
-  #theme_provider[data-theme='dark'] {
+  [data-theme='dark'] {
     --mac_header_bg: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
   }
 
   // 다크
   @media (prefers-color-scheme: dark) {
-    #theme_provider {
+    :root {
       --mac_header_bg: linear-gradient(to right, rgb(66, 20, 143), rgb(56, 17, 160), rgb(45, 13, 161), rgb(42, 10, 143));
     }
-    #theme_provider[data-theme='light'] {
+    [data-theme='light'] {
       --mac_header_bg: linear-gradient(to right, rgb(226, 177, 213), rgb(226, 195, 222), rgb(235, 220, 235), rgb(230, 206, 227), rgb(230, 196, 221));
     }
   }

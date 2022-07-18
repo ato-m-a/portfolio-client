@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import Head from 'next/head';
 import store from '../store/index';
 import axios from 'axios';
-import * as cookie from 'cookie';
 
 /* global style */
 import '../styles/global.scss';
@@ -22,45 +21,16 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
   const getLayout = Component.getLayout ?? (page => page);
   const Layout = Component.layout ?? Fragment;
 
-  let theme: string = pageProps.theme;
-
-  if (pageProps.theme === 'default' && typeof document !== 'undefined') {
-    document.cookie ? theme = cookie.parse(document.cookie).theme : 'default';
-  }
-
-  const os_theme = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    : 'not_ready';
-
-  const themeColor = theme === 'default'
-    ? os_theme && os_theme === 'dark' ? '#252525' : os_theme === 'light' ? '#fff' : '#252525'
-    : theme === 'dark' ? '#252525' : '#fff';
-
   return (
     <Provider store={store}>
       <Head>
-        <meta name="theme-color" content={themeColor} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
-      <div id="theme_provider" data-theme={theme}>
-        <Layout>
-          {getLayout(<Component {...pageProps} />)}
-        </Layout>
-      </div>
+      <Layout>
+        {getLayout(<Component {...pageProps} />)}
+      </Layout>
     </Provider>
   )
 };
-
-MyApp.getInitialProps = async ({ Component, ctx }: AppContext) => {
-  let pageProps = {};
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx);
-  };
-
-  const Cookie = ctx.req?.headers.cookie;
-  const theme = Cookie ? cookie.parse(Cookie).theme : 'default';
-
-  return { pageProps: { ...pageProps, theme } }
-}
 
 export default MyApp;

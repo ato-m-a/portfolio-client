@@ -10,6 +10,7 @@ const Document = () => {
         <meta name="description" content="초보 웹 개발자 홍준혁입니다." />
         <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 웹 개발, 개발, 웹 개발자, 웹 포트폴리오, 웹 개발 포트폴리오, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />
+        {/* for theme mode */}
         <meta name="color-scheme" content="dark light" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />

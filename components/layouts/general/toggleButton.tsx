@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect } from 'react';
+import { ReactElement } from 'react';
 import { animated, useTransition } from 'react-spring';
 
 /* styles */
@@ -7,34 +7,11 @@ import styles from '../../../styles/general-layout.module.scss';
 /* icons */
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
+/* custom hook */
+import { useTheme } from '../../../hooks/theme/useTheme';
+
 const ToggleButton = (): ReactElement => {
-  const [theme, setTheme] = useState<string>(null);
-  useEffect(() => {
-    const localtheme = localStorage.getItem('theme');
-    if (localtheme) {
-      setTheme(localtheme);
-    } else {
-      setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    }
-  }, []);
-
-  const setThemeAttributes = (value: 'dark' | 'light') => {
-    const themeColor = value === 'dark' ? '#252525' : '#fff';
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
-    document.documentElement.setAttribute('data-theme', value);
-    localStorage.setItem('theme', value);
-    setTheme(value);
-  }
-
-  const toggleTheme = () => {
-    // dark => light
-    if (theme === 'dark') {
-      setThemeAttributes('light');
-    // light => dark
-    } else {
-      setThemeAttributes('dark');
-    }
-  }
+  const [theme, toggleTheme] = useTheme();
 
   const isDark = theme === 'dark';
   const transitions = useTransition(isDark, {

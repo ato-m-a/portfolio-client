@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,6 +12,11 @@ import { BsSearch } from 'react-icons/bs';
 import ToggleButton from './toggleButton';
 
 const GeneralHeader = (): ReactElement => {
+  const [ready, setReady] = useState<boolean>(false);
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
   return (
     <header className={styles.header}>
       {/* 왼쪽 메인 버튼 */}
@@ -27,7 +32,7 @@ const GeneralHeader = (): ReactElement => {
       </div>
       {/* 오른쪽 홈 버튼 */}
       <div className={styles.header__right}>
-        <ToggleButton />
+        {ready && <ToggleButton />}
         <button type="button" className={styles.button_small}>
           <BsSearch />
         </button>

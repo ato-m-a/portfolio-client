@@ -18,6 +18,22 @@
   }
 }
 
+@media screen and (max-width: 375px) {
+  .header {
+    .header__left {
+      .header__left_text {
+        font-size: 20px !important;
+      }
+    }
+
+    .header__right {
+      .button_small {
+        margin-right: 0.08rem !important;
+      }
+    }
+  }
+}
+
 // 접히는 헤더
 .header__foldable {
   background-color: var(--blog_foldable_header_bg);

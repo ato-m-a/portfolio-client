@@ -66,9 +66,15 @@ export const su = async (command: Command) => {
         return [{ session: 'sudo: su:', text: 'Sorry' }];
       }
     } else {
-      if (text.split(' ').at(1) === 'guest') {
+      const username = text.split(' ').at(1);
+
+      if (username === 'guest') {
         ActionService.setAction({ action: 'vacateUser' });
         return [];
+      }
+
+      if (!username || username === '') {
+        return [{ session: 'su:', text: 'Sorry' }];
       }
 
       TerminalService.setState({

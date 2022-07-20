@@ -1,4 +1,4 @@
-import { ReactElement, Fragment, useEffect, useState } from 'react';
+import { ReactElement, Fragment } from 'react';
 import { AppData } from '../../../modules/appdata';
 
 /* styles */
@@ -8,13 +8,6 @@ import styles from '../../../styles/layout.module.scss';
 import Application from './mac-application';
 
 const Docker = (): ReactElement => {
-  const [isIos, setIsIos] = useState<boolean>(false);
-  useEffect(() => {
-    if (navigator.userAgent.toLowerCase().includes('iphone')) {
-      setIsIos(true);
-    }
-  }, []);
-
   return (
     <Fragment>
       <footer className={styles.docker}>
@@ -22,7 +15,7 @@ const Docker = (): ReactElement => {
           <ul>
             {
               AppData.map(app => (
-                <Application src={app.src} name={app.name} path={app.path} key={app.name} external={app.external} />
+                <Application src={app.src} name={app.name} path={app.path} key={app.name} />
               ))
             }
           </ul>

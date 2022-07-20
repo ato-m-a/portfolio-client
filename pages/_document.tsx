@@ -12,6 +12,7 @@ const Document = () => {
         <meta name="author" content="ato-m-a" />
         {/* for theme mode */}
         <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#fff" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
         {/* opengraph */}

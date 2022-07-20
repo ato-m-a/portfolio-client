@@ -14,14 +14,14 @@ const StatusBar = (): ReactElement => {
     const minutes = date.getMinutes().toString().length < 2 ? `0${date.getMinutes()}` : date.getMinutes();
 
     return `${month}월 ${date.getDate()}일 (${day}) ${am_pm} ${hours}:${minutes}`;
-  }
+  };
 
   const [available, setAvailable] = useState<boolean>(false);
   const [time, setTime] = useState<string>(stringFormat(new Date()));
   
   useEffect(() => {
     setAvailable(true);
-  }, [])
+  }, []);
 
   useEffect(() => {
     const watchTime = setInterval(() => {

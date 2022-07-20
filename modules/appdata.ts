@@ -2,7 +2,6 @@ export type AppType = {
   name: string;
   src: string;
   path: string;
-  external?: boolean;
 };
 
 export const AppData: AppType[] = [
@@ -14,8 +13,7 @@ export const AppData: AppType[] = [
   {
     name: '깃허브',
     src: 'icon_github.svg',
-    path: 'https://github.com/ato-m-a',
-    external: true
+    path: 'https://github.com/ato-m-a'
   },
   {
     name: '터미널',

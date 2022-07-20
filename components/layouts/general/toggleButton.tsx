@@ -56,7 +56,7 @@ const ToggleButton = (): ReactElement => {
               left: '50%',
               transform: 'translate(-50%, -50%)'
             }}>
-              <animated.div style={style} className={styles.svg_wrapper}>
+              <animated.div style={style} className={`${styles.svg_wrapper} ${styles.svg_wrapper_sun}`}>
                 <BsFillSunFill />
               </animated.div>
             </div>

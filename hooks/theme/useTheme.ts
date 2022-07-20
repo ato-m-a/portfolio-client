@@ -8,7 +8,11 @@ export const useTheme = () => {
 
   const setThemeAttributes = useCallback((value: 'dark' | 'light') => {
     const themeColor = value === 'dark' ? '#252525' : '#fff';
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
+    const themeColorMetaTags = document.querySelectorAll('meta[name="theme-color"]');
+    themeColorMetaTags.forEach(metaTag => {
+      metaTag.setAttribute('content', themeColor);
+    });
+
     document.documentElement.setAttribute('data-theme', value);
     localStorage.setItem('theme', value);
     setTheme(value);

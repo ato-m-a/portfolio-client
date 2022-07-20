@@ -12,7 +12,6 @@ const Document = () => {
         <meta name="author" content="ato-m-a" />
         {/* for theme mode */}
         <meta name="color-scheme" content="dark light" />
-        <meta name="theme-color" content="#fff" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
         {/* opengraph */}
@@ -81,7 +80,11 @@ const Document = () => {
 
             if (theme) {
               document.documentElement.setAttribute('data-theme', theme);
-              document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
+              const themeColorMetaTags = document.querySelectorAll('meta[name="theme-color"]');
+
+              for (const metaTag of themeColorMetaTags) {
+                metaTag.setAttribute('content', themeColor);
+              };
             }
           `
         }}></script>

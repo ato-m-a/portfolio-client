@@ -2,9 +2,7 @@
 
 @media screen and (max-width: 407px) {
   .header {
-
     .header__left {
-
       .header__left_text {
         font-size: 24px !important;
       }
@@ -36,8 +34,11 @@
 
 // 접히는 헤더
 .header__foldable {
-  background-color: var(--blog_foldable_header_bg);
-  box-shadow: var(--blog_foldable_header_box_shadow);
+  background-color: var(--blog_foldable_header_bg) !important;
+  box-shadow: var(--blog_foldable_header_box_shadow) !important;
+  position: fixed;
+  z-index: 2;
+  margin-top: -60px;
 }
 
 // 헤더

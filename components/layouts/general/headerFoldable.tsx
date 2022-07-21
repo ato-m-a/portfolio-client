@@ -1,6 +1,11 @@
-import { ReactElement, useEffect, useState, Fragment } from 'react';
+import { forwardRef, useEffect, useState, Fragment, useImperativeHandle, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+type OnScrollEventProps = {
+  prev: number;
+  curr: number;
+}
 
 /* styles */
 import styles from '../../../styles/header.module.scss';
@@ -12,7 +17,25 @@ import { BsSearch } from 'react-icons/bs';
 import ToggleButton from './toggleButton';
 import ContactMe from './contact';
 
-const GeneralHeader = (): ReactElement => {
+const FoldableHeader = forwardRef((props, ref) => {
+  const [marginTop, setMarginTop] = useState<number>(-60);
+  useImperativeHandle(ref, () => ({
+    onScrollEvent: ({ prev, curr }: OnScrollEventProps): void => {
+      // down
+      if (curr < prev && curr > 60) {
+        setMarginTop(marginTop + 6 <= 0 ? marginTop + 6 : 0);
+      }
+      // up 
+      else {
+        if (curr <= 60) {
+          setMarginTop(-60);
+        } else {
+          setMarginTop(marginTop - 6 >= -60 ? marginTop - 6 : -60);
+        }
+      }
+    }
+  }));
+
   const [ready, setReady] = useState<boolean>(false);
   useEffect(() => {
     setReady(true);
@@ -26,7 +49,7 @@ const GeneralHeader = (): ReactElement => {
 
   return (
     <Fragment>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${styles.header__foldable}`} style={{ marginTop }}>
         <div className={styles.header__wrapper}>
           {/* 왼쪽 메인 버튼 */}
           <div className={styles.header__left}>
@@ -54,6 +77,8 @@ const GeneralHeader = (): ReactElement => {
       <ContactMe open={modalOpen} close={modalClose} />
     </Fragment>
   )
-};
+});
 
-export default GeneralHeader;
+FoldableHeader.displayName = 'FoldableHeader';
+
+export default FoldableHeader;

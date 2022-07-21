@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import { animated, useTransition } from 'react-spring';
 
 /* styles */
-import styles from '../../../styles/general-layout.module.scss';
+import styles from '../../../styles/header.module.scss';
 
 /* icons */
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';

@@ -121,6 +121,11 @@ html, body, #__next {
   }
 }
 
+// it won't change by theme
+:root {
+  --blog_content_width: 1000px;
+}
+
 // global dynamic variables
 :root {
   --global_bg: #fff;
@@ -135,6 +140,8 @@ html, body, #__next {
   --blog_button_small_font: rgb(34, 37, 41);
   --blog_foldable_header_bg: #fff;
   --blog_foldable_header_box_shadow: rgba(0, 0, 0, 0.08) 0px 0px 8px;
+  --blog_link: black;
+  --blog_link_active: rgb(170, 170, 170);
 
   --mac_application_status_color: rgb(0, 0, 100);
   --mac_home_bg_image: url('/images/background-light.jpeg');
@@ -161,6 +168,8 @@ html, body, #__next {
   --blog_button_small_font: #fff;
   --blog_foldable_header_bg: #292929;
   --blog_foldable_header_box_shadow: none;
+  --blog_link: rgb(170, 170, 170);
+  --blog_link_active: #fff; 
 
   --mac_application_status_color: rgb(160, 142, 200);
   --mac_home_bg_image: url('/images/background.jpeg');
@@ -190,6 +199,8 @@ html, body, #__next {
     --blog_button_small_font: #fff;
     --blog_foldable_header_bg: #292929;
     --blog_foldable_header_box_shadow: none;
+    --blog_link: rgb(170, 170, 170);
+    --blog_link_active: #fff; 
 
     --mac_application_status_color: rgb(160, 142, 200);
     --mac_home_bg_image: url('/images/background.jpeg');
@@ -217,6 +228,8 @@ html, body, #__next {
     --blog_button_small_font: rgb(34, 37, 41);
     --blog_foldable_header_bg: #fff;
     --blog_foldable_header_box_shadow: rgba(0, 0, 0, 0.08) 0px 0px 8px;
+    --blog_link: black;
+    --blog_link_active: rgb(170, 170, 170);
 
     --mac_application_status_color: rgb(0, 0, 100);
     --mac_home_bg_image: url('/images/background-light.jpeg');

@@ -18,11 +18,12 @@ import ToggleButton from './toggleButton';
 import ContactMe from './contact';
 
 const FoldableHeader = forwardRef((props, ref) => {
+  const [prevScrollTop, setPrevScrollTop] = useState<number>(0);
   const [marginTop, setMarginTop] = useState<number>(-60);
   useImperativeHandle(ref, () => ({
-    onScrollEvent: ({ prev, curr }: OnScrollEventProps): void => {
+    onScrollEvent: (curr: number): void => {
       // down
-      if (curr < prev && curr > 60) {
+      if (curr < prevScrollTop && curr > 60) {
         setMarginTop(marginTop + 6 <= 0 ? marginTop + 6 : 0);
       }
       // up 
@@ -33,6 +34,7 @@ const FoldableHeader = forwardRef((props, ref) => {
           setMarginTop(marginTop - 6 >= -60 ? marginTop - 6 : -60);
         }
       }
+      setPrevScrollTop(curr);
     }
   }));
 

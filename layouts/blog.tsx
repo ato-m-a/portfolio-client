@@ -13,22 +13,27 @@ import FoldableHeader from '../components/layouts/general/headerFoldable';
 import styles from '../styles/blog.module.scss';
 
 const GeneralLayout = ({ children }: AppProps): ReactElement => {
-  const [prevScrollTop, setPrevScrollTop] = useState<number>(0);
   const headerRef = useRef(null);
 
-  const scrollEvent = (e: UIEvent) => {
-    const current_scrollTop: number = e.currentTarget.scrollTop;
-    headerRef.current.onScrollEvent({ prev: prevScrollTop, curr: current_scrollTop });
+  useEffect(() => {
+    const scrollEvent = () => {
+      const refCurrent = headerRef.current;
+      const current_scrollTop: number = window.scrollY;
+      refCurrent.onScrollEvent(current_scrollTop);
+    };
 
-    setPrevScrollTop(current_scrollTop);
-  };
+    window.addEventListener('scroll', scrollEvent);
+    return () => {
+      window.removeEventListener('scroll', scrollEvent);
+    }
+  }, []);
 
   return (
     <Fragment>
       <Head>
         <title>Blog - 홍준혁</title>
       </Head>
-      <main className={styles.blog} onScroll={scrollEvent}>
+      <main className={styles.blog}>
         <FoldableHeader ref={headerRef} />
         <GeneralHeader />
         {children}

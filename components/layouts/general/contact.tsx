@@ -129,7 +129,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
   }
 
   useEffect(() => {
-    if (animate && visible && open) document.body.style.position = 'fixed';
+    if (animate && visible && open) document.body.style.overflowY = 'hidden';
 
     if (animate && !visible) {
       setVisible(true);
@@ -139,7 +139,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       setAnimate(open);
     } else {
       setTimeout(() => {
-        document.body.style.position = 'static';
+        document.body.style.overflowY = 'auto';
         setAnimate(open);
       }, 300);
     }

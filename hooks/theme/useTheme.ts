@@ -1,13 +1,23 @@
 import { useState, useEffect, useCallback } from 'react';
 
+/* redux */
+import { useAppDispatch } from '../../store/hooks';
+import { updateTheme } from '../../store/reducers/theme';
+import store from '../../store';
+
 export const useTheme = () => {
+  const dispatch = useAppDispatch();
   const os = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const local = localStorage.getItem('theme');
 
   const [theme, setTheme] = useState<string>(local ? local : os);
   useEffect(() => {
-    if (local) setTheme(local);
-  }, [local]);
+    const subscription = store.subscribe(() => {
+      const theme = store.getState().theme;
+      if (theme.theme !== 'default') setTheme(theme.theme);
+    });
+    return () => subscription();
+  }, []);
 
   const setThemeAttributes = useCallback((value: 'dark' | 'light') => {
     const themeColor = value === 'dark' ? '#252525' : '#fff';
@@ -19,7 +29,8 @@ export const useTheme = () => {
     document.documentElement.setAttribute('data-theme', value);
     localStorage.setItem('theme', value);
     setTheme(value);
-  }, []);
+    dispatch(updateTheme(value));
+  }, [dispatch]);
 
   const toggleTheme = useCallback(() => {
     // dark => light

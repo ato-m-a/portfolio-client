@@ -117,7 +117,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       };
 
       await axios.post('/api/v1/contact', dataset);
-      setMessage('연락 주셔서 감사합니다! 빠른 시일 내로 회신 드리도록 하겠습니다');
+      setMessage('연락 주셔서 감사합니다! 빠른 시일 내로 회신 드리겠습니다.');
       initForm();
       setFormState(false);
       setTimeout(() => {

@@ -29,21 +29,14 @@ const GeneralLayout = ({ children }: AppProps): ReactElement => {
     }
   }, []);
 
-  // for contact modal
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const modalClose = () => {
-    setModalOpen(false);
-  };
-
   return (
     <Fragment>
       <Head>
         <title>Blog - 홍준혁</title>
       </Head>
-      <ContactMe open={modalOpen} close={modalClose} />
       <main className={styles.blog}>
-        <FoldableHeader openModal={() => setModalOpen(true)} ref={headerRef} />
-        <GeneralHeader openModal={() => setModalOpen(true)} />
+        <FoldableHeader ref={headerRef} />
+        <GeneralHeader />
         {children}
       </main>
     </Fragment>

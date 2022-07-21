@@ -103,10 +103,7 @@
 
 body {
   -webkit-font-smoothing: antialiased;
-}
-
-body::-webkit-scrollbar {
-  display: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 html, body, #__next {

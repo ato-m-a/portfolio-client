@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect, ChangeEvent, KeyboardEvent } from 'react';
+import { ReactElement, useState, useEffect, ChangeEvent } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
 

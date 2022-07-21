@@ -34,16 +34,19 @@
 
 // 접히는 헤더
 .header__foldable {
-  background-color: var(--blog_foldable_header_bg) !important;
-  box-shadow: var(--blog_foldable_header_box_shadow) !important;
+  background-color: var(--blog_foldable_header_bg);
+  box-shadow: var(--blog_foldable_header_box_shadow);
   position: fixed;
-  z-index: 2;
-  margin-top: -60px;
+}
+
+// 안접히는 헤더
+.header__unfoldable {
+  background-color: var(--blog_bg);
+  position: relative;
 }
 
 // 헤더
 .header {
-  background-color: var(--blog_bg);
   padding: 0px 10px;
   display: flex;
   flex-direction: row;
@@ -121,6 +124,7 @@
         justify-content: center;
         align-items: center;
         font-size: 1.2rem;
+        position: relative;
         
         .svg_wrapper {
           svg {

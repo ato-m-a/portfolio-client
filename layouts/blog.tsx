@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement, Fragment, useState, UIEvent, useRef } from 'react';
+import { ReactNode, ReactElement, Fragment, useState, UIEvent, useRef, useEffect } from 'react';
 import Head from 'next/head';
 
 type AppProps = {
@@ -28,8 +28,8 @@ const GeneralLayout = ({ children }: AppProps): ReactElement => {
       <Head>
         <title>Blog - 홍준혁</title>
       </Head>
-      <FoldableHeader ref={headerRef} />
       <main className={styles.blog} onScroll={scrollEvent}>
+        <FoldableHeader ref={headerRef} />
         <GeneralHeader />
         {children}
       </main>

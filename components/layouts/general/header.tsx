@@ -26,7 +26,7 @@ const GeneralHeader = (): ReactElement => {
 
   return (
     <Fragment>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${styles.header__unfoldable}`}>
         <div className={styles.header__wrapper}>
           {/* 왼쪽 메인 버튼 */}
           <div className={styles.header__left}>

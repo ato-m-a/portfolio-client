@@ -1,5 +1,4 @@
 import { ReactElement, useState, useEffect, ChangeEvent } from 'react';
-import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock';
 import Image from 'next/image';
 import axios from 'axios';
 
@@ -130,7 +129,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
   };
 
   useEffect(() => {
-    if (animate && visible && open) disableBodyScroll(document.body);
+    if (animate && visible && open) document.body.style.overflowY = 'hidden';
 
     if (animate && !visible) {
       setVisible(true);
@@ -140,7 +139,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       setAnimate(open);
     } else {
       setTimeout(() => {
-        enableBodyScroll(document.body);
+        document.body.style.overflowY = 'initial';
         setAnimate(open);
       }, 300);
     }

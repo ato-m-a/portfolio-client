@@ -7,6 +7,7 @@ const Document = () => {
         <meta charSet="utf-8" />
         <meta name="apple-mobile-web-app-title" content="홍준혁" />
         {/* for SEO */}
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="description" content="초보 웹 개발자 홍준혁입니다." />
         <meta name="keywords" content="홍준혁, 프론트엔드 포트폴리오, 프론트엔드, 웹 개발, 개발, 웹 개발자, 웹 포트폴리오, 웹 개발 포트폴리오, 포트폴리오, frontend, front-end, fe, web developer, portfolio" />
         <meta name="author" content="ato-m-a" />

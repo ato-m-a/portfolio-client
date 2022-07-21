@@ -129,6 +129,8 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
   }
 
   useEffect(() => {
+    if (animate && visible && open) document.body.style.position = 'fixed';
+
     if (animate && !visible) {
       setVisible(true);
       setTimeout(() => setVisible(false), 300);
@@ -136,7 +138,10 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
     if (open === true) {
       setAnimate(open);
     } else {
-      setTimeout(() => setAnimate(open), 300);
+      setTimeout(() => {
+        document.body.style.position = 'static';
+        setAnimate(open);
+      }, 300);
     }
   }, [visible, open, animate]);
 

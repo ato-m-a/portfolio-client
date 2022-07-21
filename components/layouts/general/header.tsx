@@ -2,6 +2,10 @@ import { ReactElement, useEffect, useState, Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+type Props = {
+  openModal: () => void;
+}
+
 /* styles */
 import styles from '../../../styles/header.module.scss';
 
@@ -12,47 +16,38 @@ import { BsSearch } from 'react-icons/bs';
 import ToggleButton from './toggleButton';
 import ContactMe from './contact';
 
-const GeneralHeader = (): ReactElement => {
+const GeneralHeader = ({ openModal }: Props): ReactElement => {
   const [ready, setReady] = useState<boolean>(false);
   useEffect(() => {
     setReady(true);
   }, []);
 
-  // for contact modal
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const modalClose = () => {
-    setModalOpen(false);
-  }
-
   return (
-    <Fragment>
-      <header className={`${styles.header} ${styles.header__unfoldable}`}>
-        <div className={styles.header__wrapper}>
-          {/* 왼쪽 메인 버튼 */}
-          <div className={styles.header__left}>
-            <Link href={{ pathname: '/blog' }}>
-              <div className={styles.header__left_home}>
-                <Image src="/images/memoticon.svg" alt="bear_logo" width={60} height={60} />
-                <div className={styles.header__left_text}>
-                  ato-m-a
-                </div>
+    <header className={`${styles.header} ${styles.header__unfoldable}`}>
+      <div className={styles.header__wrapper}>
+        {/* 왼쪽 메인 버튼 */}
+        <div className={styles.header__left}>
+          <Link href={{ pathname: '/blog' }}>
+            <div className={styles.header__left_home}>
+              <Image src="/images/memoticon.svg" alt="bear_logo" width={60} height={60} />
+              <div className={styles.header__left_text}>
+                ato-m-a
               </div>
-            </Link>
-          </div>
-          {/* 오른쪽 홈 버튼 */}
-          <div className={styles.header__right}>
-            {ready && <ToggleButton />}
-            <button type="button" className={styles.button_small}>
-              <BsSearch />
-            </button>
-            <button type="button" className={styles.button_wide} onClick={() => setModalOpen(true)}>
-              CONTACT
-            </button>
-          </div>
+            </div>
+          </Link>
         </div>
-      </header>
-      <ContactMe open={modalOpen} close={modalClose} />
-    </Fragment>
+        {/* 오른쪽 홈 버튼 */}
+        <div className={styles.header__right}>
+          {ready && <ToggleButton />}
+          <button type="button" className={styles.button_small}>
+            <BsSearch />
+          </button>
+          <button type="button" className={styles.button_wide} onClick={openModal}>
+            CONTACT
+          </button>
+        </div>
+      </div>
+    </header>
   )
 };
 

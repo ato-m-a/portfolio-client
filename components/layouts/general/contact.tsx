@@ -129,7 +129,10 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
   };
 
   useEffect(() => {
-    if (animate && visible && open) document.body.style.overflowY = 'hidden';
+    if (animate && visible && open) {
+      document.querySelector('main').style.overflowY = 'hidden';
+      document.body.style.overflowY = 'hidden';
+    }
 
     if (animate && !visible) {
       setVisible(true);
@@ -139,6 +142,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       setAnimate(open);
     } else {
       setTimeout(() => {
+        document.querySelector('main').style.overflowY = 'auto';
         document.body.style.overflowY = 'initial';
         setAnimate(open);
       }, 300);

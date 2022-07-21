@@ -1,4 +1,5 @@
 import { ReactElement, useState, useEffect, ChangeEvent } from 'react';
+import { enableBodyScroll, disableBodyScroll } from 'body-scroll-lock';
 import Image from 'next/image';
 import axios from 'axios';
 
@@ -126,10 +127,10 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
     } catch (error) {
       setErrorMessage(error.message);
     }
-  }
+  };
 
   useEffect(() => {
-    if (animate && visible && open) document.body.style.overflowY = 'hidden';
+    if (animate && visible && open) disableBodyScroll(document.body);
 
     if (animate && !visible) {
       setVisible(true);
@@ -139,7 +140,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       setAnimate(open);
     } else {
       setTimeout(() => {
-        document.body.style.overflowY = 'auto';
+        enableBodyScroll(document.body);
         setAnimate(open);
       }, 300);
     }
@@ -150,7 +151,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       if (e.key === 'Escape') {
         closeModal();
       }
-    }
+    };
 
     document.addEventListener('keydown', keyDown);
     return () => {

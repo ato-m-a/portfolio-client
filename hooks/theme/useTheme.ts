@@ -1,10 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const useTheme = () => {
   const os = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const local = localStorage.getItem('theme');
 
   const [theme, setTheme] = useState<string>(local ? local : os);
+  useEffect(() => {
+    if (local) setTheme(local);
+  }, [local]);
 
   const setThemeAttributes = useCallback((value: 'dark' | 'light') => {
     const themeColor = value === 'dark' ? '#252525' : '#fff';

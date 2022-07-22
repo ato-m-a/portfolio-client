@@ -130,8 +130,6 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
 
   useEffect(() => {
     if (animate && visible && open) {
-      document.body.style['-webkit-overflow-scrolling'] = 'touch';
-      document.querySelector('main').style.overflowY = 'hidden';
       document.body.style.overflowY = 'hidden';
     }
 
@@ -143,8 +141,6 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       setAnimate(open);
     } else {
       setTimeout(() => {
-        document.body.style['-webkit-overflow-scrolling'] = 'auto';
-        document.querySelector('main').style.overflowY = 'auto';
         document.body.style.overflowY = 'initial';
         setAnimate(open);
       }, 300);
@@ -169,7 +165,8 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
   };
 
   return (
-    <div className={`${styles.contact__wrapper} ${open ? styles.open : styles.close}`}>
+    <div className={`${styles.contact__wrapper} ${open ? styles.open : styles.close}`}
+    onTouchMove={(e) => e.preventDefault()}>
       <section>
         <div className={styles.contact__intro}>
           <div className={styles.contact__intro_image}>
@@ -201,22 +198,25 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
           {/* name */}
           <div className={styles.contact__input}>
             <label htmlFor="name">성명</label>
-            <input type="text" value={name} name="name" onChange={onChange} disabled={!formState} />
+            <input type="text" value={name} id="name" name="name" onChange={onChange} disabled={!formState}
+            autoComplete="off" autoCorrect="off" />
           </div>
           {/* email */}
           <div className={styles.contact__input}>
             <label htmlFor="email">이메일</label>
-            <input type="text" value={email} name="email" onChange={onChange} disabled={!formState} />
+            <input type="text" value={email} id="email" name="email" onChange={onChange} disabled={!formState}
+            autoComplete="off" autoCorrect="off" autoCapitalize="none" />
           </div>
           {/* subject */}
           <div className={styles.contact__input}>
             <label htmlFor="subject">제목</label>
-            <input type="text" value={subject} name="subject" onChange={onChange} disabled={!formState} />
+            <input type="text" value={subject} id="subject" name="subject" onChange={onChange} disabled={!formState}
+            autoComplete="off" autoCorrect="off" />
           </div> 
           {/* content */}
           <div className={styles.contact__input}>
             <label htmlFor="content">내용</label>
-            <textarea value={content} name="content" onChange={onChange}
+            <textarea value={content} name="content" id="content" onChange={onChange}
             rows={8} cols={33} autoCapitalize="none" autoComplete="off" autoCorrect="none" disabled={!formState} />
           </div> 
         </form>

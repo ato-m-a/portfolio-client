@@ -130,6 +130,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
 
   useEffect(() => {
     if (animate && visible && open) {
+      document.body.style['-webkit-overflow-scrolling'] = 'touch';
       document.querySelector('main').style.overflowY = 'hidden';
       document.body.style.overflowY = 'hidden';
     }
@@ -142,6 +143,7 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
       setAnimate(open);
     } else {
       setTimeout(() => {
+        document.body.style['-webkit-overflow-scrolling'] = 'auto';
         document.querySelector('main').style.overflowY = 'auto';
         document.body.style.overflowY = 'initial';
         setAnimate(open);
@@ -155,11 +157,9 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
         closeModal();
       }
     };
-    document.addEventListener('touchmove', (e) => e.preventDefault());
     document.addEventListener('keydown', keyDown);
     return () => {
       document.removeEventListener('keydown', keyDown);
-      document.removeEventListener('touchmove', (e) => e.preventDefault());
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

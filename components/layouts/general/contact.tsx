@@ -155,10 +155,11 @@ const ContactMe = ({ open, close }: Props): ReactElement => {
         closeModal();
       }
     };
-
+    document.addEventListener('touchmove', (e) => e.preventDefault());
     document.addEventListener('keydown', keyDown);
     return () => {
       document.removeEventListener('keydown', keyDown);
+      document.removeEventListener('touchmove', (e) => e.preventDefault());
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

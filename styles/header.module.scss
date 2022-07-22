@@ -1,5 +1,6 @@
 @import './variables.scss';
 
+// header margin & font-size adjust
 @media screen and (max-width: 407px) {
   .header {
     .header__left {
@@ -16,19 +17,33 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+// mini
+@media screen and (max-width: 386px) {
   .header {
-    .header__left {
-      .header__left_text {
-        font-size: 20px !important;
-      }
-    }
-
     .header__right {
+
+      // hide search button and contact button & expose hamburger menu button
+      #search,
+      .button_wide {
+        display: none !important;
+      }
+
       .button_small {
-        margin-right: 0.08rem !important;
+        margin-right: 0.04rem !important;
       }
     }
+  }
+}
+
+// header space adjust
+@media screen and (max-width: 1919px) {
+  .header__wrapper {
+    max-width: 1376px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .header__wrapper {
+    max-width: 1024px;
   }
 }
 
@@ -53,13 +68,15 @@
   justify-content: center;
   width: 100%;
   height: 60px;
+  z-index: 2;
 
   .header__wrapper {
     display: flex;
     justify-content: space-between;
     height: 100%;
     width: 100%;
-    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 
     .header__left {
       display: flex;

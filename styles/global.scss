@@ -91,16 +91,6 @@
   box-sizing: border-box;
 }
 
-#__next {
-  background: #fff;
-}
-
-@media (prefers-color-scheme: dark) {
-  #__next {
-    background: #252525;
-  }
-}
-
 body {
   -webkit-font-smoothing: antialiased;
 }
@@ -113,6 +103,7 @@ html, body {
   }
 
   #__next {
+    background: var(--global_bg);
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -128,6 +119,7 @@ html, body {
 // global dynamic variables
 :root {
   --global_bg: #fff;
+  --logo_bg: #bbd0e9;
 
   --blog_bg: #fff;
   --blog_font: #252525;
@@ -157,6 +149,7 @@ html, body {
 
 [data-theme='dark'] {
   --global_bg: #252525;
+  --logo_bg: rgb(224, 216, 251);
   
   --blog_bg: #252525;
   --blog_font: #fff;
@@ -187,6 +180,7 @@ html, body {
 @media (prefers-color-scheme: dark) {
   :root {
     --global_bg: #252525;
+    --logo_bg: rgb(224, 216, 251);
 
     --blog_bg: #252525;
     --blog_font: #fff;
@@ -216,6 +210,7 @@ html, body {
 
   [data-theme='light'] {
     --global_bg: #fff;
+    --logo_bg: #bbd0e9;
 
     --blog_bg: #fff;
     --blog_font: #252525;

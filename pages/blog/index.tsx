@@ -1,11 +1,12 @@
 import { Page } from '../../types/page';
 import { Fragment } from 'react';
+import Head from 'next/head';
 
 /* layout */
 import GeneralLayout from '../../layouts/blog';
 
 /* styles */
-import styles from '../../styles/blog.index.module.scss';
+import styles from '../../styles/blog.module.scss';
 
 /* components */
 import Intro from '../../components/layouts/general/blog/main/intro';
@@ -13,167 +14,12 @@ import Intro from '../../components/layouts/general/blog/main/intro';
 const Blog: Page = () => {
   return (
     <Fragment>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-      <div>asdfasdfasdf</div>
-
+      <Head>
+        <title>Blog - 홍준혁</title>
+      </Head>
+      <main className={styles.blog}>
+        <Intro />
+      </main>
     </Fragment>
   )
 };
